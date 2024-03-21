@@ -57,10 +57,10 @@ const Footer: FC = () => {
           <p>All rights reserved 2024&copy;</p>
           <div className='flex gap-2'>
             <span className='p-1 rounded-full border-2 border-light-blue'>
-              <Image src="/img/Telegram.svg" width={30} height={30} alt='Tele' />
+              <Image src='/img/Telegram.svg' width={30} height={30} alt='Tele' />
             </span>
             <span className='p-1 rounded-full border-2 border-light-blue'>
-              <Image src="/img/Instagram.svg" width={30} height={30} alt='Insta' />
+              <Image src='/img/Instagram.svg' width={30} height={30} alt='Insta' />
             </span>
           </div>
           <ul className='flex gap-6'>
