@@ -1,6 +1,7 @@
 import {twMerge} from 'tailwind-merge';
 
 type ButtonProps = {
+  className?: string,
   children?: React.ReactNode;
   size?: 'small' | 'normal' | 'large',
   disabled?: boolean;
@@ -9,6 +10,7 @@ type ButtonProps = {
 };
 
 const PrimaryButton: React.FC<ButtonProps> = ({
+  className,
   children,
   size = 'small',
   disabled,
@@ -22,7 +24,8 @@ const PrimaryButton: React.FC<ButtonProps> = ({
           'rounded-xl text-center text-white font-bold bg-light-blue cursor-pointer disabled:pointer-events-none',
           size === 'large' && 'px-6 py-4 text-lg',
           size === 'normal' && 'px-3 py-2 text-md',
-          size === 'small' && 'px-6 py-1 text-md font-normal rounded-full'
+          size === 'small' && 'px-6 py-1 text-md font-normal rounded-full',
+          className
         )
       }
       disabled={disabled || loading}
