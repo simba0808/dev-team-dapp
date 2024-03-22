@@ -9,6 +9,8 @@
 
   --color-dark-blue: #071C2E;
   --color-light-blue: #00AEEF;
+  --color-light-cyan: #00E0FF;
+  --color-cyan: #00FFEB;
 
 }
 
@@ -33,5 +35,13 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .blue__gradient {
+    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #00FFEB 100%);
+    filter: blur(123px);
+  }
+  .sidebar {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 }
