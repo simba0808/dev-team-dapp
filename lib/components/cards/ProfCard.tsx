@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+
 type ProfCardType = {
   partner?: Number;
   earnL?: Number;

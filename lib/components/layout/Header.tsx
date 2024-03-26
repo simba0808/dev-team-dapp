@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, useCallback, useMemo } from 'react';
 
-import ConnectWalletButton from '@/lib/web3/components/ConnectWalletButton';
+import Button from '../button/Button';
 import ToggleMenu from '@/public/img/menu.svg';
 
 import Image from 'next/image';
@@ -16,6 +16,10 @@ export const Header: FC = () => {
 
   const onLogo = useCallback(() => {
     router.push('/');
+  }, []);
+
+  const onConnect = useCallback(() => {
+    router.push('/signin');
   }, []);
 
   const logoElement = useMemo(() => {
@@ -35,11 +39,13 @@ export const Header: FC = () => {
   }, []);
 
   return (
-    <div className={`z-10 fixed w-full flex items-center py-6 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
+    <div className={`z-20 fixed w-full flex items-center py-6 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>
-          <ConnectWalletButton  />
+          <Button variant='transparent' size='medium' onClick={onConnect}>
+            Connect Wallet
+          </Button>
           <button className='lg:hidden' onClick={() => setToggle(!toggle)}>
             <ToggleMenu />
           </button>

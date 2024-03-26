@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
-import PrimaryButton from '../buttons/PrimaryButton';
+import Button from '../button/Button';
 import Image from 'next/image';
 
 import type { FC } from 'react';
@@ -32,13 +32,13 @@ const Footer: FC = () => {
   }, []);
 
   return (
-    <div className='w-full pt-6 pb-4 bg-black/40'>
+    <div className='w-full pt-6 pb-4 text-white bg-black/40'>
       <div className='max-w-screen-xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4'>
         <div className='flex flex-wrap justify-between items-center'>
           { logoElement }
-          <PrimaryButton className='lg:order-2' size='small'>
+          <Button className='lg:order-2' variant='transparent' size='small'>
             Items
-          </PrimaryButton>
+          </Button>
           <ul className='w-full lg:w-auto flex justify-center gap-2 lg:gap-8 mt-10 lg:mt-0 text-white text-xl font-thin lg:order-1'>
             {
               ['Invest', 'Real Estate', 'Crypto', 'Travel', 'Academy'].map((item, index) => {
@@ -54,7 +54,7 @@ const Footer: FC = () => {
         
         <div className='w-full h-[1px] bg-gradient-to-r from-transparent from-0% via-30% via-white to-100% to-transparent'></div>
         
-        <div className='flex flex-wrap justify-center lg:justify-between items-center text-gray-500 gap-4'>
+        <div className='relative flex flex-wrap justify-center lg:justify-between items-center text-gray-500 gap-4'>
           <p className=''>All rights reserved 2024&copy;</p>
           <ul className='w-full lg:w-auto grid lg:grid-cols-4 grid-cols-2 justify-end gap-6 lg:order-2'>
             {

@@ -2,11 +2,10 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 
-import ReferalCard from '@/components/cards/ReferalCard';
-import ProfCard from '@/components/cards/ProfCard';
-import PrimaryButton from '@/components/buttons/PrimaryButton';
+import ReferalCard from '@/lib/components/cards/ReferalCard';
+import ProfCard from '@/lib/components/cards/ProfCard';
+import Button from '@/lib/components/button/Button';
 import MaskBackground3 from '@/public/img/MaskBackground3.svg';
-import Wallet from '@/public/img/Wallet.svg';
 
 import type { FC } from 'react';
 
@@ -53,30 +52,59 @@ const Landing: FC = () => {
             <div className='md:basis-1/3'>
               <h1 className='py-4 text-4xl md:text-6xl xl:text-7xl font-medium text-white leading-[150%]'>ACCOUNT BALANCE</h1>
               <p className='mb-10 text-xl text-white '>Your Actocracy account token balance</p>
-              <PrimaryButton
+              <Button
+                variant='transparent'
                 size='large'
               >
                 Request Rewards Sync
-              </PrimaryButton>
-            </div>
-            <div className='flex justify-end grow'>
-              <div className='hidden md:block relative w-[100%] h-[500px]'>
-                <Image src='/img/Wallet.svg' alt='wallet' className='object-cover' fill />
-              </div>
+              </Button>
             </div>
           </div>
         </div>
       </div>
-      <div className='relative h-[100vh]'>
+      
+      <div className='z-10 relative py-6 sm:py-20'>
         { 
           BackgroundMask2
         }
-        <div className='max-w-screen-xl w-full h-full mx-auto'>
-          
+        <div className='max-w-screen-xl w-full h-full mx-auto text-white text-center'>
+          <p className='text-5xl'><span className='text-6xl'>T</span>oken <span className='text-6xl'>S</span>wap</p>
+          <p className='py-2'>Select tokens. Type amount. Press Swap. Confirm</p>
+          <div className='px-24 py-10 mt-10 border border-white flex flex-col gap-4 text-2xl rounded-2xl backdrop-blur-sm'>
+            <h2 className='text-4xl'>PROF Swap</h2>
+            <div>
+              <div className='flex justify-between'>
+                <span>You PAY</span>
+                <span>BALANCE: 0</span>
+              </div>
+              <div className='py-2 bg-[#05111C]'>
+                <div>
+                  
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className='flex justify-between'>
+                <span>You Receive</span>
+                <span>BALANCE: 0</span>
+              </div>
+              <div className='py-2 bg-[#05111C]'>
+                <div>
+                    
+                </div>
+              </div>
+            </div>
+            <div>
+              <Button variant='transparent' size='large'>
+                Connect Wallet
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
+
       <div className='relative py-6 sm:py-20'>
-        <MaskBackground3 className='absolute -top-[30%] w-full h-full' />
+        <MaskBackground3 className='z-0 absolute -top-[30%] w-full h-full' />
         <div className='max-w-screen-xl w-full flex items-center justify-center mx-auto'>
           <div className='w-full px-4 text-white flex flex-col items-center gap-4'>
             <p className='text-center text-5xl'><span className='text-6xl'>R</span>EFERRAL <span className='text-6xl'>S</span>TATS</p>
