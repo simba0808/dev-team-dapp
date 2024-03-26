@@ -1,21 +1,29 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useState, useCallback, useMemo } from 'react';
-
-import ConnectWalletButton from '@/lib/web3/components/ConnectWalletButton';
-import ToggleMenu from '@/public/img/menu.svg';
-
+import {useRouter} from 'next/navigation';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import Image from 'next/image';
 
-import type { FC } from 'react';
+import ToggleMenu from '@/public/img/menu.svg';
+
+import Button from '../button/Button';
+
+import type {FC} from 'react';
 
 export const Header: FC = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch('/signin');
+  }, []);
 
   const [toggle, setToggle] = useState(false);
 
   const onLogo = useCallback(() => {
     router.push('/');
+  }, []);
+
+  const onConnect = useCallback(() => {
+    router.push('/signin');
   }, []);
 
   const logoElement = useMemo(() => {
@@ -35,11 +43,13 @@ export const Header: FC = () => {
   }, []);
 
   return (
-    <div className={`z-10 fixed w-full flex items-center py-6 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
+    <div className={`z-20 fixed w-full flex items-center py-6 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>
-          <ConnectWalletButton  />
+          <Button variant='transparent' size='medium' onClick={onConnect}>
+            Connect Wallet
+          </Button>
           <button className='lg:hidden' onClick={() => setToggle(!toggle)}>
             <ToggleMenu />
           </button>
@@ -52,7 +62,7 @@ export const Header: FC = () => {
                   <li className='py-2' key={index}>
                     {item}
                   </li>
-                )
+                );
               })
             }
           </ul>

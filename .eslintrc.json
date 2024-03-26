@@ -1,6 +1,50 @@
 {
-  "extends": "next/core-web-vitals",
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "unused-imports",
+    "import"
+  ],
   "rules": {
-    "react-hooks/exhaustive-deps": "off"
+    "@next/next/no-img-element": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
+    "react-hooks/exhaustive-deps": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+
+    "@typescript-eslint/member-delimiter-style": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    // eslint
+    "no-unused-vars": "off", // to avoid a conflict with @typescript-eslint
+    "no-irregular-whitespace": "off",
+    "no-undef": "off",
+    "quotes": ["error", "single", "avoid-escape"],
+    "object-curly-spacing": ["error", "never"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "only-multiline"],
+    "indent": ["error", 2, {"SwitchCase":  1, "flatTernaryExpressions": true}],
+
+    // import
+    "unused-imports/no-unused-imports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "parent", ["sibling", "index"], "type"],
+      "newlines-between": "always"
+    }],
+    "sort-imports": ["error", { // sort destructure imports
+      "ignoreCase": false,
+      "ignoreDeclarationSort": true,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "single", "multiple"],
+      "allowSeparatedGroups": true
+    }]
   }
 }
