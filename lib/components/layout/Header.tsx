@@ -1,16 +1,20 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useState, useCallback, useMemo } from 'react';
-
-import Button from '../button/Button';
-import ToggleMenu from '@/public/img/menu.svg';
-
+import {useRouter} from 'next/navigation';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import Image from 'next/image';
 
-import type { FC } from 'react';
+import ToggleMenu from '@/public/img/menu.svg';
+
+import Button from '../button/Button';
+
+import type {FC} from 'react';
 
 export const Header: FC = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch('/signin');
+  }, []);
 
   const [toggle, setToggle] = useState(false);
 
@@ -58,7 +62,7 @@ export const Header: FC = () => {
                   <li className='py-2' key={index}>
                     {item}
                   </li>
-                )
+                );
               })
             }
           </ul>

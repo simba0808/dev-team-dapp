@@ -1,11 +1,11 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useCallback, useMemo } from 'react';
+import {useRouter} from 'next/navigation';
+import Image from 'next/image';
+import {useCallback, useMemo} from 'react';
 
 import Button from '../button/Button';
-import Image from 'next/image';
 
-import type { FC } from 'react';
+import type {FC} from 'react';
 
 
 const Footer: FC = () => {
@@ -46,7 +46,7 @@ const Footer: FC = () => {
                   <li key={index}>
                     {item}
                   </li>
-                )
+                );
               })
             }
           </ul>
@@ -63,7 +63,7 @@ const Footer: FC = () => {
                   <li key={index} className='text-center underline underline-offset-4 hover:cursor-pointer'>
                     {item}
                   </li>
-                )
+                );
               })
             }
           </ul>

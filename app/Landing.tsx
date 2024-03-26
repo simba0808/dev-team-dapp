@@ -1,5 +1,5 @@
 'use client';
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 import Image from 'next/image';
 
 import ReferalCard from '@/lib/components/cards/ReferalCard';
@@ -7,7 +7,7 @@ import ProfCard from '@/lib/components/cards/ProfCard';
 import Button from '@/lib/components/button/Button';
 import MaskBackground3 from '@/public/img/MaskBackground3.svg';
 
-import type { FC } from 'react';
+import type {FC} from 'react';
 
 const Landing: FC = () => {
   const BackgroundMask = useMemo(() => {
@@ -29,7 +29,7 @@ const Landing: FC = () => {
         className='object-cover'
         fill
       />
-    )
+    );
   }, []);
 
   // const BackgroundMask3 = useMemo(() => {

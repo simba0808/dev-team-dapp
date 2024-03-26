@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import {useMemo} from 'react';
+
 import VectorCardIcon from '@/public/img/Vector.svg';
 
 type ReferalProps = {
@@ -6,7 +7,7 @@ type ReferalProps = {
   count?: Number;
 };
 
-const ReferalCard: React.FC<ReferalProps> = ({ level, count }) => {
+const ReferalCard: React.FC<ReferalProps> = ({level, count}) => {
   const CardImage = useMemo(() => {
     return (
       <VectorCardIcon />
