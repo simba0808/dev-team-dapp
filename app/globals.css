@@ -32,6 +32,19 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1 {
+  @apply text-2xl md:text-3xl;
+  /*font-size: 36px;*/
+  /*line-height: 40px;*/
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  color: white;
+
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
