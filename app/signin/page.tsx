@@ -5,14 +5,13 @@ import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import Spinner from '@/lib/components/spinnner/Spinner';
 import ConnectWalletModal from '@/lib/web3/components/ConnectWalletModal';
 import Header from '@/lib/components/layout/Header';
-import Button from '@/lib/components/button/Button';
 
 import ProviderButton from './ProviderButton';
 import ConnectWeb3Wallet from './ConnectWeb3Wallet';
-import SigninErrorWrapper from './signinErrorWrapper';
+import SigninErrorWrapper from './SigninErrorWrapper';
 
 import type {FC} from 'react';
-import type {SignInPageErrorParam} from './signinErrorWrapper';
+import type {SignInPageErrorParam} from './SigninErrorWrapper';
 
 const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({searchParams}) => {
   const {session} = useAuthSession('google');

@@ -33,7 +33,6 @@ const SiweButton: FC<Props> = () => {
   const modalOpened = useRef(false);
 
   const onSignIn = useCallback(async () => {
-    console.log(address);
     if (!address) {
       localStorage.removeItem('walletconnect');
       localStorage.removeItem('wagmi.wallet');
@@ -44,35 +43,36 @@ const SiweButton: FC<Props> = () => {
       open();
     } else {
       modalOpened.current = false;
+      
+      try {
+        const nonce = await authChallenge(address as string);
+  
+        const {SiweMessage} = await import('siwe');
+  
+        const siwe = new SiweMessage({
+          domain: window.location.host,
+          address: address,
+          statement: 'Sign in with Ethereum to the app.',
+          uri: window.location.origin,
+          version: '1',
+          chainId: chain?.id,
+          nonce: nonce,
+        });
+  
+        const message = siwe.prepareMessage();
+        const signature = await signMessageAsync({message});
+        dispatch(authSiweDataInitialized({message, signature}));
+  
+        signIn('siwe', {
+          message: JSON.stringify(message),
+          signature,
+          callbackUrl: searchParams.get('callbackUrl') ?? undefined,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
 
-    try {
-      const nonce = await authChallenge(address as string);
-
-      const {SiweMessage} = await import('siwe');
-
-      const siwe = new SiweMessage({
-        domain: window.location.host,
-        address: address,
-        statement: 'Sign in with Ethereum to the app.',
-        uri: window.location.origin,
-        version: '1',
-        chainId: chain?.id,
-        nonce: nonce,
-      });
-
-      const message = siwe.prepareMessage();
-      const signature = await signMessageAsync({message});
-      dispatch(authSiweDataInitialized({message, signature}));
-
-      signIn('siwe', {
-        message: JSON.stringify(message),
-        signature,
-        callbackUrl: searchParams.get('callbackUrl') ?? undefined,
-      });
-    } catch (error) {
-      console.log(error);
-    }
   }, [address, chain, signMessageAsync, searchParams]);
 
   useEffect(() => {

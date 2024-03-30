@@ -1,5 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+import {authSyncSession} from '@/lib/net/modules/auth';
+
 import type {PayloadAction} from '@reduxjs/toolkit';
 import type {Session} from 'next-auth';
 
@@ -18,6 +20,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     authSessionReceived: ({sessions}, action: PayloadAction<{provider: Provider; session: Session}>) => {
+      console.log('1', action.payload.session, sessions[action.payload.provider]?.data.providerAccountId);
       if (sessions[action.payload.provider]?.data.providerAccountId !== action.payload.session.providerAccountId) {
         sessions[action.payload.provider] = {data: action.payload.session};
       }
@@ -34,7 +37,27 @@ const authSlice = createSlice({
     }
   },
   extraReducers: builder => {
+    builder.addCase(authSyncSession.pending, (state, action) => {
+      const providerSession = state.sessions[action.meta.arg];
+      if (providerSession) {
+        providerSession.syncing = true;
+      }
+    });
+    builder.addCase(authSyncSession.rejected, (state, action) => {
+      const providerSession = state.sessions[action.meta.arg];
+      if (providerSession) {
+        providerSession.syncing = false;
+      }
+    });
+    builder.addCase(authSyncSession.fulfilled, (state, action) => {
+      state.token = action.payload.token;
 
+      const providerSession = state.sessions[action.meta.arg];
+      if (providerSession) {
+        providerSession.syncing = false;
+        providerSession.synced = true;
+      }
+    });
   }
 });
 

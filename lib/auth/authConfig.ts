@@ -54,6 +54,7 @@ const authConfig: AuthOptions = {
           }
 
           token.provider = account.provider as Provider;
+          token.providerAccountId = account.providerAccountId;
         }
       }
 

@@ -6,6 +6,7 @@ import {getServerSession} from 'next-auth';
 
 import ReduxProvider from '@/lib/store/ReduxProvider';
 import AuthSessionProvider from '@/lib/auth/AuthSessionProvider';
+import QueryProvider from '@/lib/net/react-query/QueryProvider';
 import Web3Client from '@/lib/web3/Web3Client';
 import authConfig from '@/lib/auth/authConfig';
 
@@ -28,11 +29,13 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
-          <AuthSessionProvider session={session}>
-            <Web3Client>
-              {children}
-            </Web3Client>
-          </AuthSessionProvider>
+          <QueryProvider>
+            <AuthSessionProvider session={session}>
+              <Web3Client>
+                {children}
+              </Web3Client>
+            </AuthSessionProvider>
+          </QueryProvider>
         </ReduxProvider>
       </body>
     </html>
