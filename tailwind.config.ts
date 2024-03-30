@@ -18,6 +18,7 @@ const config: Config = {
         'light-blue': 'var(--color-light-blue)',
         'light-cyan': 'var(--color-light-cyan)',
         'cyan': 'var(--color-cyan)',
+        'dark-green': 'var(--color-dark-green)',
       }
     },
   },

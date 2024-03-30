@@ -18,7 +18,7 @@ const ProfCard: React.FC<ProfCardType> = ({
           'from-transparent via-teal-300/20 to-transparent to-[67%]',
           )}>
       </div> */}
-      <div  className="absolute left-[50%] -translate-x-[50%] -top-[95%] w-[30%] h-full blue__gradient">
+      <div  className="absolute left-[50%] -translate-x-[50%] -top-[95%] w-[30%] h-full green__gradient">
 
       </div>
       <div>

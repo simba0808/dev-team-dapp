@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "image": "metamask.svg",
+    "name": "MetaMask",
+    "isActive": true,
+    "chainNoHex": 137,
+    "chainName": "Polygon Mainnet",
+    "nativeCurrency": { "name": "MATIC", "symbol": "MATIC", "decimals": 18 },
+    "rpcUrls": ["https://polygon-rpc.com/"],
+    "blockExplorerUrls": ["https://polygonscan.com"]
+  },
+  {
+    "id": 2,
+    "image": "binance.svg",
+    "name": "Binance Web3 Wallet",
+    "isActive": true,
+    "chainNoHex": 137,
+    "chainName": "Polygon Mainnet",
+    "nativeCurrency": { "name": "MATIC", "symbol": "MATIC", "decimals": 18 },
+    "rpcUrls": ["https://polygon-rpc.com/"],
+    "blockExplorerUrls": ["https://polygonscan.com"]
+  },
+  {
+    "id": 3,
+    "image": "coinbase.svg",
+    "name": "Coinbase Wallet",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  },
+  {
+    "id": 4,
+    "image": "trust.svg",
+    "name": "Trast Wallet",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  },
+  {
+    "id": 5,
+    "image": "walletconnect.svg",
+    "name": "Walletconnect",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  },
+  {
+    "id": 6,
+    "image": "opera.svg",
+    "name": "Opera Wallet",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  },
+  {
+    "id": 7,
+    "image": "brave.svg",
+    "name": "Brave Wallet",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  },
+  {
+    "id": 8,
+    "image": "rabby.svg",
+    "name": "Rabby Wallet",
+    "isActive": false,
+    "chainNoHex": 1,
+    "chainName": "Ethereum Mainnet",
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "rpcUrls": ["https://api.mycryptoapi.com/eth"],
+    "blockExplorerUrls": ["https://etherscan.io"]
+  }
+]
