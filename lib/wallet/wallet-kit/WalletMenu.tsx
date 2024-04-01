@@ -4,28 +4,28 @@ import {useWeb3Modal} from '@web3modal/react';
 import {useAccount, useBalance, useNetwork} from 'wagmi';
 import {Logout} from '@mui/icons-material';
 
-//import {useAppSelector} from '@/lib/store/hooks';
+import {useAppSelector} from '@/lib/store/hooks';
 import tokenList from '@/lib/wallet/TokenList';
 
 import WalletHeader from './WalletHeader';
 
 const WalletMenu = () => {
-  //const user = useAppSelector(state => state.auth.user);
+  const user = useAppSelector(state => state.auth.user);
   const {chain} = useNetwork();
   const {address, isConnected} = useAccount();
 
   const {data: dimpOnWallet} = useBalance({
-    address: '0x0955767D3Eb443EA8E6E149BC492a7AfaD993e1f',
+    address: user?.address,
     token: tokenList[0]?.tokenAddress,
   });
 
   const {data: usdtOnWallet} = useBalance({
-    address: '0x0955767D3Eb443EA8E6E149BC492a7AfaD993e1f',
+    address: user?.address,
     token: tokenList[1]?.tokenAddress,
   });
 
   const {data: usdcOnWallet} = useBalance({
-    address: '0x0955767D3Eb443EA8E6E149BC492a7AfaD993e1f',
+    address: user?.address,
     token: tokenList[2]?.tokenAddress,
   });
   

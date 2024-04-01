@@ -65,7 +65,7 @@ const WalletHeader = () => {
           <CopyLink url={address as string}/>
         </h3>
       </span>
-      <a href={'https://polygonscan.com/address/' + address} target='_blank' rel='noopener noreferrer'>
+      <a href={'https://bscscan.com/address/' + address} target='_blank' rel='noopener noreferrer'>
         <BSCIcon className='w-12 h-12' fill='#fff' />
       </a>
     </div>

@@ -3,6 +3,7 @@ import {signIn} from 'next-auth/react';
 import {useSearchParams} from 'next/navigation';
 import {useCallback} from 'react';
 
+import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import Button from '@/lib/components/button/Button';
 
 import type {ButtonProps} from '@/lib/components/button/Button';
@@ -12,7 +13,7 @@ import type {FC} from 'react';
 type Provider = 'siwe' | 'google';
 
 const providersData: Record<Provider, { name: string; verb?: string; buttonVariant?:  ButtonProps['variant'] }> = {
-  siwe: {name: 'Web3 Wallet', verb: 'Connect', buttonVariant: 'gradient'},
+  siwe: {name: 'Web3 Wallet', verb: 'Connect', buttonVariant: 'transparent'},
   google: {name: 'Google', verb: 'Connect'}
 } as const;
 
@@ -24,8 +25,14 @@ type Props = {
 
 const ProviderButton: FC<Props> = ({provider, size='medium', onSignIn}) => {
   const searchParams = useSearchParams();
+  const {session, disconnect} = useAuthSession(provider.id as Provider);
 
   const onClick = useCallback(() => {
+    if (session) {
+      disconnect();
+      return;
+    }
+
     if (onSignIn) {
       onSignIn();
     } else {
@@ -38,14 +45,14 @@ const ProviderButton: FC<Props> = ({provider, size='medium', onSignIn}) => {
   }, []);
 
   const providerData = providersData[provider.id as Provider];
-  const {buttonVariant = 'gradient', verb = 'Connect', name = provider.name} = providerData;
+  const {buttonVariant = 'transparent', verb = 'Connect', name = provider.name} = providerData;
   return (
     <Button
       size={size}
-      variant='transparent'
+      variant={session ? 'gray' : buttonVariant}
       onClick={onClick}
     >
-      {verb} {name}
+      {session ? 'Disconnect' : verb} {name}
     </Button>
   );
 };

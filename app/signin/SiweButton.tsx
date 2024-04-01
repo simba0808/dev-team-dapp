@@ -4,6 +4,7 @@ import {signIn} from 'next-auth/react';
 import {useSearchParams} from 'next/navigation';
 import {useCallback, useEffect, useRef} from 'react';
 import {useAccount, useNetwork, useSignMessage} from 'wagmi';
+import {twMerge} from 'tailwind-merge';
 
 import {authSiweDataInitialized} from '@/lib/store/auth/auth-slice';
 import {useAppDispatch} from '@/lib/store/hooks';
@@ -19,9 +20,10 @@ const SIWE_PROVIDER = {
 };
 
 type Props = {
+  className?: string;
 };
 
-const SiweButton: FC<Props> = () => {
+const SiweButton: FC<Props> = ({className}) => {
   const {address} = useAccount();
   const {chain} = useNetwork();
   const  {signMessageAsync} = useSignMessage();
@@ -82,10 +84,18 @@ const SiweButton: FC<Props> = () => {
   }, [address, onSignIn]);
 
   return (
-    <div className='text-center'>
+    <div 
+      className={
+        twMerge(
+          'text-center',
+          className
+        )
+      }
+    >
       <ProviderButton
         provider={SIWE_PROVIDER}
         onSignIn={onSignIn}
+        size={className ? 'small':'medium'}
       />
     </div>
   );

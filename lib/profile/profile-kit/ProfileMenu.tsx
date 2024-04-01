@@ -3,7 +3,6 @@ import {AdminPanelSettingsOutlined, ContactSupportOutlined, LanguageOutlined, Li
 import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 
 import ProfileHeader from './ProfileHeader';
-import './profile.scss';
 
 const ProfileMenu = () => {
   const SIWE_PROVIDER = {
@@ -38,7 +37,7 @@ const ProfileMenu = () => {
         <div className='bg-black/70 px-4 py-2'>
           <hr className='text-white/20'></hr>
         </div>
-        <a href='https://wiki.actocracy.com'>
+        <a href='https://wiki.actocracy.com' target='_blank' rel='noopener noreferrer'>
           <div className="flex flex-row justify-start gap-2 items-center px-4 py-2.5 rounded-none bg-black/70 cursor-pointer">
             <LibraryBooksOutlined className="text-white" fontSize='small'/>
             <h3 className='text-white font-normal text-base'>
@@ -46,7 +45,7 @@ const ProfileMenu = () => {
             </h3>
           </div>
         </a>
-        <a href='https://t.me/actocracy_en'>
+        <a href='https://t.me/actocracy_en' target='_blank' rel='noopener noreferrer'>
           <div className="flex flex-row justify-start gap-2 items-center px-4 py-2.5 rounded-none bg-black/70 cursor-pointer">
             <ContactSupportOutlined className="text-white" fontSize='small'/>
             <h3 className='text-white font-normal text-base'>
