@@ -55,7 +55,7 @@ const Wallet = () => {
       </div>
       <div
         ref={toggleButtonRef} // Attach the ref here
-        className="flex flex-col text-center items-center rounded-full overflow-auto cursor-pointer ml-4"
+        className="flex flex-col text-center items-center rounded-full overflow-auto cursor-pointer"
         onClick={onToggle}
       >
         <WalletOutlined className="text-white" fontSize='large'/>

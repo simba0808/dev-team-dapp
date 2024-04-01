@@ -7,6 +7,8 @@ import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from 'redux-persist/e
 
 import authMiddleware from '@/lib/store/auth/auth-middleware';
 import authSlice from '@/lib/store/auth/auth-slice';
+import walletSlice from '@/lib/store/wallet/wallet-slice';
+import profileSlice from '@/lib/store//profile/profile-slice';
 
 import type {AnyAction, ThunkAction} from '@reduxjs/toolkit';
 
@@ -17,8 +19,22 @@ const authPersistConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
+const walletPersistConfig = {
+  key: 'wallet',
+  version: 1,
+  storage: localStorage,
+};
+
+const profilePersistConfig = {
+  key: 'profile',
+  version: 1,
+  storage: localStorage,
+};
+
 const rootReducer = combineReducers({
   auth: persistReducer<ReturnType<typeof authSlice.reducer>>(authPersistConfig, authSlice.reducer),
+  wallet: persistReducer(walletPersistConfig, walletSlice.reducer),
+  profile: persistReducer(profilePersistConfig, profileSlice.reducer),
 });
 
 export const store = configureStore({
