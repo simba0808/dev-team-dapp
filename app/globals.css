@@ -54,6 +54,16 @@ h3 {
   font-weight: 300;
 }
 
+@layer components {
+  .surface {
+    @apply flex flex-col pt-4 pb-5 px-4 bg-white/20 rounded-2xl
+  }
+
+  .surface-compact {
+    @apply surface p-0 rounded-lg
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

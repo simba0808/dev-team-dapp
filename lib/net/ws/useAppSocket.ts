@@ -22,7 +22,7 @@ export type BaseSocketMessage = {
     rewards: number;
     dimp_earned: number;
     dimp_spent: number;
-    address: string;
+    address: `0x${string}`;
     hash: string;
     ref_slug: string;
   };

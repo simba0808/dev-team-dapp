@@ -8,7 +8,7 @@ const ConnectWeb3Wallet = () => {
 
   if (session) {
     return (
-      <div className="surfacepb-5">
+      <div className="surface pb-5">
         {
           session &&
           <div className="text-base text-center font-medium">
@@ -22,7 +22,7 @@ const ConnectWeb3Wallet = () => {
   }
 
   return (
-    <div className="surfacedrop-shadow-lg pb-5">
+    <div className="surface drop-shadow-lg pb-5">
       {
         !session &&
         <div className="text-base text-center font-medium mb-3.5">

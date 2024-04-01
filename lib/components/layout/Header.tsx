@@ -5,11 +5,15 @@ import Image from 'next/image';
 
 import ToggleMenu from '@/public/img/menu.svg';
 
-import Button from '../button/Button';
+import type {FC, ReactNode} from 'react';
 
-import type {FC} from 'react';
+type Props = {
+  trailing?: ReactNode;
+};
 
-export const Header: FC = () => {
+export const Header: FC<Props> = ({
+  trailing
+}) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -20,10 +24,6 @@ export const Header: FC = () => {
 
   const onLogo = useCallback(() => {
     router.push('/');
-  }, []);
-
-  const onConnect = useCallback(() => {
-    router.push('/signin');
   }, []);
 
   const logoElement = useMemo(() => {
@@ -47,9 +47,9 @@ export const Header: FC = () => {
       <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>
-          <Button variant='transparent' size='medium' onClick={onConnect}>
-            Connect Wallet
-          </Button>
+          {
+            trailing
+          }
           <button className='lg:hidden' onClick={() => setToggle(!toggle)}>
             <ToggleMenu />
           </button>
