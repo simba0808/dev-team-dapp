@@ -9,8 +9,8 @@ import WalletMenu from '@/lib/wallet/wallet-kit/WalletMenu';
 const Wallet = () => {
   const dispatch = useAppDispatch();
   const active = useAppSelector(state => state.wallet.active);
-  const walletRef = useRef(null);
-  const toggleButtonRef = useRef(null);
+  const walletRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLDivElement>(null);
 
   const onToggle = useCallback(() => {
     dispatch(profileToggleOff());
@@ -19,8 +19,8 @@ const Wallet = () => {
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (
-      walletRef.current && !walletRef.current.contains(event.target) &&
-      toggleButtonRef.current && !toggleButtonRef.current.contains(event.target) && 
+      walletRef.current && !walletRef.current.contains(event.target as Node) &&
+      toggleButtonRef.current && !toggleButtonRef.current.contains(event.target as Node) && 
       active) {
       dispatch(walletToggleOff());
     }
