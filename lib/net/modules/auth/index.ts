@@ -10,6 +10,13 @@ import {fetchServer, postServer} from '@/lib/net/fetch/fetch';
 import type {AppThunkAction, RootState} from '@/lib/store';
 
 type AllSessionsData = Record<`${Provider}_id` | `${Provider}_name` | `${Provider}_email`, string>;
+type dispatchResultType = {
+  jwt: string;
+  user: {
+    id: number;
+  };
+  is_signup: boolean;
+}
 
 const getAllSessionsData = (sessions: RootState['auth']['sessions']) => {
   return (Object.keys(sessions) as Provider[]).reduce<Partial<AllSessionsData>>((acc, provider) => {
@@ -34,16 +41,16 @@ export const authChallenge = async (address: string) => {
 export const authSyncSession = createAppAsyncThunk(
   'auth/sync-session',
   async (provider: Provider, {dispatch, rejectWithValue}) => {
-    let result: {jwt: string; user: {id: number}; is_signup: boolean};
+    let result: dispatchResultType;
 
     try {
       switch (provider) {
         case 'siwe': {
-          result = await dispatch(authSiwe());
+          result = await dispatch(authSiwe()) as dispatchResultType ;
           break;
         }
         case 'google': {
-          result = await dispatch(authOAuth(provider));
+          result = await dispatch(authOAuth(provider)) as dispatchResultType;
           break;
         }
       }
