@@ -1,7 +1,6 @@
 'use client';
 import {useRouter} from 'next/navigation';
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import Image from 'next/image';
 
 import ToggleMenu from '@/public/img/menu.svg';
 
@@ -29,13 +28,10 @@ export const Header: FC<Props> = ({
   const logoElement = useMemo(() => {
     return (
       <>
-        <Image
-          className='cursor-pointer'
-          src='/img/Logo.svg' 
-          width={200} 
-          height={83}
+        <img
+          className='w-[150px] h-[55px] sm:w-[200px] sm:h-[70px] cursor-pointer'
+          src='/img/Logo.svg'
           alt='logo'
-          priority
           onClick={onLogo}
         />
       </>
@@ -43,8 +39,8 @@ export const Header: FC<Props> = ({
   }, []);
 
   return (
-    <div className={`z-20 fixed w-full flex items-center py-6 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
-      <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4'>
+    <div className={`z-20 fixed top-0 w-full flex items-center py-4 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
+      <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4 sm:px-10'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>
           {

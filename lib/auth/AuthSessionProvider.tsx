@@ -33,7 +33,7 @@ const AuthSessionProvider: FC<Props> = ({session, children}) => {
         try {
           const result = await dispatch(authSyncSession(storedSession.data.provider)).unwrap();
           if (result.userId) {
-            router.push('/dashboard');
+            router.push('/home');
           }
         } catch (error) {
           const getMessage = (err) => {

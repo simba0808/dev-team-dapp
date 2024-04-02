@@ -46,6 +46,7 @@ const ProviderButton: FC<Props> = ({provider, size='medium', onSignIn}) => {
 
   const providerData = providersData[provider.id as Provider];
   const {buttonVariant = 'transparent', verb = 'Connect', name = provider.name} = providerData;
+  
   return (
     <Button
       size={size}

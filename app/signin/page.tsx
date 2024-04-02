@@ -5,6 +5,7 @@ import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import Spinner from '@/lib/components/spinnner/Spinner';
 import ConnectWalletModal from '@/lib/web3/components/ConnectWalletModal';
 import Header from '@/lib/components/layout/Header';
+import Background from '@/app/Background';
 
 import ProviderButton from './ProviderButton';
 import ConnectWeb3Wallet from './ConnectWeb3Wallet';
@@ -24,8 +25,11 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
 
   return (
     <>
+      <div className="fixed w-screen min-h-screen top-0 left-0 -z-10 bg-dark-blue">
+        <Background />
+      </div>
       <Header />
-      <div className='min-h-[100vh] flex items-center justify-center bg-dark-blue'>
+      <div className='min-h-[100vh] flex items-center justify-center'>
         <div className='flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
           <h1 className='text-center mb-4'>
             Log in to ProGFi

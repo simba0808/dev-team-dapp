@@ -13,8 +13,8 @@ import Header from '@/lib/components/layout/Header';
 import Profile from '@/lib/profile/Profile';
 import Wallet from '@/lib/wallet/wallet';
 import Button from '@/lib/components/button/Button';
-
-import SiweButton from '../signin/SiweButton';
+import SiweButton from '@/app/signin/SiweButton';
+import Background from '@/app/Background';
 
 import type {FC, ReactNode} from 'react';
 
@@ -94,12 +94,13 @@ const MainLayout: FC<Props> = ({children}) => {
   ), [status, user, isConnected]);
 
   return (
-    <>
+    <div className='bg-dark-blue overflow-x-clip'>
+      <Background />
       <Header trailing={headerTrailing} />
-      <div className='min-h-[100vh] bg-dark-blue'>
+      <div className='absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] flex justify-center items-center'>
         {children}
       </div>
-    </>
+    </div>
   );
 };
 
