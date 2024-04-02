@@ -10,8 +10,8 @@ import ProfileMenu from '@/lib/profile/profile-kit/ProfileMenu';
 const Profile = () => {
   const dispatch = useAppDispatch();
   const active = useAppSelector(state => state.profile.active);
-  const profileRef = useRef(null);
-  const buttonRef = useRef(null);
+  const profileRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   const onToggle = useCallback(() => {
     dispatch(walletToggleOff());
@@ -20,8 +20,8 @@ const Profile = () => {
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (
-      profileRef.current && !profileRef.current.contains(event.target) &&
-      buttonRef.current && !buttonRef.current.contains(event.target) && 
+      profileRef.current && !profileRef.current.contains(event.target as Node) &&
+      buttonRef.current && !buttonRef.current.contains(event.target as Node) && 
       active) {
       dispatch(profileToggleOff());
     }
