@@ -14,7 +14,6 @@ type AuthState = {
   siweData?: {message: string; signature: string};
   user?: BaseSocketMessage['user'];
   app_config: BaseSocketMessage['app_config'];
-
 };
 
 const initialState = (): AuthState => ({
