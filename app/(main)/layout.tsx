@@ -94,10 +94,10 @@ const MainLayout: FC<Props> = ({children}) => {
   ), [status, user, isConnected]);
 
   return (
-    <div className='bg-dark-blue overflow-x-clip'>
+    <div className='min-h-[100vh] overflow-x-clip'>
       <Background />
       <Header trailing={headerTrailing} />
-      <div className='absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] flex justify-center items-center'>
+      <div className='absolute top-[150px] md:top-[200px] w-full py-2 flex justify-center items-center'>
         {children}
       </div>
     </div>

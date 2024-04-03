@@ -1,6 +1,7 @@
 'use client';
-import {useRouter} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {useCallback, useEffect, useMemo, useState} from 'react';
+import Link from 'next/link';
 
 import ToggleMenu from '@/public/img/menu.svg';
 
@@ -8,6 +9,11 @@ import type {FC, ReactNode} from 'react';
 
 type Props = {
   trailing?: ReactNode;
+};
+
+type TabProps = {
+  title: string;
+  href: string;
 };
 
 export const Header: FC<Props> = ({
@@ -38,6 +44,22 @@ export const Header: FC<Props> = ({
     );
   }, []);
 
+  const Tab: FC<TabProps> = ({
+    href,
+    title, 
+  }) => {
+    const pathname = usePathname();
+    const active = pathname === href;
+
+    return (
+      <li className='py-2'>
+        <Link href={href}>
+          <span className={`${active?'font-light':'font-thin'}`}>{title}</span>
+        </Link>
+      </li>
+    );
+  };
+
   return (
     <div className={`z-20 fixed top-0 w-full flex items-center py-4 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4 sm:px-10'>
@@ -52,15 +74,11 @@ export const Header: FC<Props> = ({
         </div>
         <div className={`w-full lg:w-auto ${toggle?'flex':'hidden lg:flex'} items-center gap-10 lg:order-1`}>
           <ul className='w-full flex flex-col lg:flex-row lg:gap-8 mt-4 lg:mt-0 divide-y-[1px] divide-slate-700 lg:divide-y-0 text-white text-xl font-thin'>
-            {
-              ['Private Sale', 'Swap', 'Farming', 'Refferal', 'White Paper'].map((item, index) => {
-                return (
-                  <li className='py-2' key={index}>
-                    {item}
-                  </li>
-                );
-              })
-            }
+            <Tab href='/sale' title='Private Sale' />
+            <Tab href='/swap' title='Swap' />
+            <Tab href='/farming' title='Farming' />
+            <Tab href='/referral' title='Referral' />
+            <Tab href='#' title='White Paper' />
           </ul>
         </div>
       </div>
