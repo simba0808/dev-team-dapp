@@ -1,5 +1,4 @@
 'use client';
-import {UpDownIcon} from '@chakra-ui/icons';
 import {useAccount} from 'wagmi';
 
 import useAuthSession from '@/lib/auth/hooks/useAuthSession';
@@ -14,7 +13,7 @@ const SwapWidget = () => {
   
 
   return (
-    <div className='max-w-screen-xl w-full overflow-hidden px-4 sm:px-10 mx-auto text-white text-center'>
+    <div className='w-full overflow-hidden text-white text-center'>
       <p className='text-3xl md:text-5xl'><span className='text-4xl md:text-6xl'>T</span>oken <span className='text-4xl md:text-6xl'>S</span>wap</p>
       <p className='py-2'>Select tokens. Type amount. Press Swap. Confirm</p>
       <div className='py-10 mt-10 border border-white flex flex-col gap-4 text-lg md:text-2xl bg-black/5 rounded-2xl'>
@@ -29,11 +28,15 @@ const SwapWidget = () => {
               <Selector />
             </div>
           </div>
-          <div className='my-4'>
-            <UpDownIcon
-              className="rotate-50 cursor-pointer"
-              fontSize="2rem"
-            />
+          <div className='my-4 flex justify-center'>
+            <span className='flex flex-col gap-2'>
+              <span>
+                <img src='/img/ArrowUp.svg' alt='up' />
+              </span>
+              <span>
+                <img src='/img/ArrowDown.svg' alt='down' />
+              </span>
+            </span>
           </div>
           <div className='mb-8'>
             <div className='flex justify-between text-[20px]'>

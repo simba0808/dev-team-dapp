@@ -94,13 +94,15 @@ const MainLayout: FC<Props> = ({children}) => {
   ), [status, user, isConnected]);
 
   return (
-    <div className='min-h-[100vh] overflow-x-clip'>
-      <Background />
+    <>
+      <div className="fixed w-[100%] min-h-screen top-0 left-0 -z-10 bg-dark-blue">
+        <Background />
+      </div>
       <Header trailing={headerTrailing} />
-      <div className='absolute top-[150px] md:top-[200px] w-full py-2 flex justify-center items-center'>
+      <div className='max-w-screen-xl w-full px-4 sm:px-10 mx-auto py-32 flex justify-center items-center'>
         {children}
       </div>
-    </div>
+    </>
   );
 };
 

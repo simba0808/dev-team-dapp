@@ -61,14 +61,14 @@ export const Header: FC<Props> = ({
   };
 
   return (
-    <div className={`z-20 fixed top-0 w-full flex items-center py-4 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
+    <div className={`z-20 fixed top-0 w-[100vw] flex items-center py-4 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-xl w-full flex flex-wrap justify-between items-center mx-auto px-4 sm:px-10'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>
           {
             trailing
           }
-          <button className='lg:hidden' onClick={() => setToggle(!toggle)}>
+          <button className='lg:hidden mr-2' onClick={() => setToggle(!toggle)}>
             <ToggleMenu />
           </button>
         </div>
