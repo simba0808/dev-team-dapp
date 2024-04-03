@@ -60,7 +60,7 @@ const Footer: FC = () => {
           <Button className='lg:order-2' variant='transparent' size='small'>
             Вход
           </Button>
-          <ul className='w-full lg:w-auto flex justify-center gap-4 xs:gap-6 lg:gap-8 mt-10 lg:mt-0 text-white text-sm xs:text-xl font-thin lg:order-1'>
+          <ul className='w-full lg:w-auto flex justify-center gap-4 xs:gap-6 lg:gap-8 mt-10 lg:mt-0 text-white text-sm sm:text-xl font-thin lg:order-1'>
             <Tab href='/sale' title='Private Sale' />
             <Tab href='/swap' title='Swap' />
             <Tab href='/farming' title='Farming' />

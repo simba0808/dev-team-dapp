@@ -1,12 +1,15 @@
 'use client';
-import {Suspense, useState} from 'react';
+import {Suspense, useCallback, useMemo, useState} from 'react';
+import {useRouter} from 'next/navigation';
 
 import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import Spinner from '@/lib/components/spinnner/Spinner';
 import ConnectWalletModal from '@/lib/web3/components/ConnectWalletModal';
 import Header from '@/lib/components/layout/Header';
+import Footer from '@/lib/components/layout/Footer';
 import Background from '@/app/Background';
 import MaskMaker from '@/lib/components/MaskMaker';
+import Button from '@/lib/components/button/Button';
 
 import ProviderButton from './ProviderButton';
 import ConnectWeb3Wallet from './ConnectWeb3Wallet';
@@ -17,6 +20,7 @@ import type {SignInPageErrorParam} from './SigninErrorWrapper';
 
 const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({searchParams}) => {
   const {session} = useAuthSession('google');
+  const router = useRouter();
 
   const [web3ModalOpen, setWeb3ModalOpen] = useState(false);
 
@@ -24,13 +28,23 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
     setWeb3ModalOpen(false);
   };
 
+  const onConnect = useCallback(() => {
+    router.push('/signin');
+  }, []);
+
+  const headerTrailing = useMemo(() => (
+    <Button variant='transparent' size='medium' onClick={onConnect}>
+      Connect Wallet
+    </Button>
+  ), []);
+
   return (
     <>
-      <div className="fixed w-screen min-h-screen top-0 left-0 -z-10 bg-dark-blue">
+      <div className="fixed w-[100%] min-h-screen top-0 left-0 -z-10 bg-dark-blue">
         <Background />
       </div>
-      <Header />
-      <div className='relative min-h-[100vh] flex items-center justify-center'>
+      <Header trailing={headerTrailing} />
+      <div className='relative pt-32 pb-12 flex items-center justify-center px-4'>
         <div className='z-10 flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
           <h1 className='text-center mb-4'>
             Log in to ProGFi
@@ -90,6 +104,7 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
         <MaskMaker className='-top-[30%]' width={500} height={500} position='top-right' color='blue' />
         <MaskMaker className='-top-[50%] -left-[10%]' width={400} height={400} color='green' />
       </div>
+      <Footer />
       <ConnectWalletModal isOpen={web3ModalOpen} onClose={closeWeb3Modal}/>
     </>
   );

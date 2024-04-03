@@ -49,10 +49,10 @@ const Referral = () => {
   const user = useAppSelector(state => state.auth.user);
 
   return (
-    <div className='max-w-screen-xl w-full px-4'>
+    <div className='w-full'>
       <h1 className="mb-8 sm:mb-16 text-center">Referral lounge</h1>
-      <div className='w-full flex md:flex-row flex-col gap-4 sm:gap-10 mb-16'>
-        <div className="w-md max-w-[90vw] mb-4">
+      <div className='w-full flex md:flex-row flex-col justify-center gap-4 sm:gap-10 mb-16'>
+        <div className="w-md max-w-[90vw] mb-4 mx-auto">
           <div className='surface p-[1px] bg-gradient-to-r from-dark-blue to-gray-400'>
             <div className='rounded-2xl bg-dark-blue'>
               <div className="min-h-[250px] surface gap-4 relative p-8 bg-black/20 text-white overflow-hidden">
@@ -84,7 +84,7 @@ const Referral = () => {
         </div>
         {
           user &&
-          <div className="w-md max-w-[90vw] mb-4 text-white">
+          <div className="w-md max-w-[90vw] mb-4 mx-auto text-white">
             <div className='surface p-[1px] bg-gradient-to-r from-dark-blue to-gray-400'>
               <div className='rounded-2xl bg-dark-blue'>
                 <div className="min-h-[250px] relative overflow-hidden flex flex-col justify-center items-center gap-4 rounded-2xl bg-black/20">
