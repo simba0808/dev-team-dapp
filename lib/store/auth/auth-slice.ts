@@ -6,6 +6,7 @@ import {authSyncSession} from '@/lib/net/modules/auth';
 import type {PayloadAction} from '@reduxjs/toolkit';
 import type {Session} from 'next-auth';
 import type {BaseSocketMessage} from '@/lib/net/ws/useAppSocket';
+import type {SocketMessageSync} from '@/lib/net/ws/useSocketGlobalMessages';
 
 type AuthState = {
   token?: string;
@@ -14,13 +15,24 @@ type AuthState = {
   siweData?: {message: string; signature: string};
   user?: BaseSocketMessage['user'];
   app_config: BaseSocketMessage['app_config'];
+  referral_stats: SocketMessageSync['referral_stats'];
 };
 
 const initialState = (): AuthState => ({
   sessions: {},
   app_config: {
     dimp_usd_rate: 0.001,
-  }
+  },
+  referral_stats: {
+    total_counter: 0,
+    lvl_one_counter: 0,
+    lvl_two_counter: 0,
+    lvl_three_counter: 0,
+    dimp_total: 0,
+    dimp_lvl_one: 0,
+    dimp_lvl_two: 0,
+    dimp_lvl_three: 0,
+  },
 });
 
 const authSlice = createSlice({
@@ -51,7 +63,12 @@ const authSlice = createSlice({
       if (!_.isEqual(state.app_config, action.payload)) {
         state.app_config = action.payload;
       }
-    }
+    },
+    authReferralStatsReceived: (state, action: PayloadAction<AuthState['referral_stats']>) => {
+      if (!_.isEqual(state.referral_stats, action.payload)) {
+        state.referral_stats = action.payload;
+      }
+    },
   },
   extraReducers: builder => {
     builder.addCase(authSyncSession.pending, (state, action) => {
@@ -84,6 +101,7 @@ export const {
   authSiweDataInitialized,
   authUserDataReceived,
   authAppConfigReceived,
+  authReferralStatsReceived,
 } = authSlice.actions;
 
 export default authSlice;
