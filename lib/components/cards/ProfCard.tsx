@@ -7,7 +7,7 @@ const ProfCard = () => {
   const stats = useAppSelector(state => state.auth.referral_stats);
 
   return (
-    <div className='max-w-[1024px] w-full flex flex-col mt-10'>
+    <div className='w-full flex flex-col mt-10'>
       <p className='text-center mt-4'>Your Referral performance</p>
       <div className='overflow-hidden relative w-full px-10 py-8 mt-6 grid grid-cols-1 sm:grid-cols-7 gap-10 sm:gap-4 border border-white rounded-2xl text-5xl text-center text-cyan font-semibold'>
         <div className="absolute left-[50%] -translate-x-[50%] -top-[95%] w-[30%] h-full green__gradient">

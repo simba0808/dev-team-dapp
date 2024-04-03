@@ -28,7 +28,7 @@ const Selector = () => {
   return (
     <ul className='relative text-sm rounded-md shadow-md' ref={selectorRef}>
       <li 
-        className='flex justify-between px-2 py-2 bg-light-blue rounded-md shadow-md hover:cursor-pointer'
+        className='box-shadow flex justify-between px-2 py-2 bg-light-blue rounded-md shadow-md hover:cursor-pointer'
         onClick={() => setExpaned(!isExpaned)}
       >
         <img
