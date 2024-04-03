@@ -31,10 +31,10 @@ const SwapWidget = () => {
           <div className='my-4 flex justify-center'>
             <span className='flex flex-col gap-2'>
               <span>
-                <img src='/img/ArrowUp.svg' alt='up' />
+                <img className='w-8' src='/img/ArrowUp.svg' alt='up' />
               </span>
               <span>
-                <img src='/img/ArrowDown.svg' alt='down' />
+                <img className='w-8' src='/img/ArrowDown.svg' alt='down' />
               </span>
             </span>
           </div>
