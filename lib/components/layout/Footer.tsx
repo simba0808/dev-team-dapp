@@ -1,12 +1,17 @@
 'use client';
-import {useRouter} from 'next/navigation';
-import Image from 'next/image';
+import {usePathname, useRouter} from 'next/navigation';
 import {useCallback, useMemo} from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 import Button from '../button/Button';
 
 import type {FC} from 'react';
 
+type TabProps = {
+  title: string;
+  href: string;
+};
 
 const Footer: FC = () => {
   const router = useRouter();
@@ -31,24 +36,36 @@ const Footer: FC = () => {
     );
   }, []);
 
+  const Tab: FC<TabProps> = ({
+    href,
+    title, 
+  }) => {
+    const pathname = usePathname();
+    const active = pathname === href;
+
+    return (
+      <li className='py-2'>
+        <Link href={href}>
+          <span className={`${active?'font-light':'font-thin'}`}>{title}</span>
+        </Link>
+      </li>
+    );
+  };
+
   return (
     <div className='w-full pt-6 pb-4 text-white bg-black/40'>
-      <div className='max-w-screen-xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4'>
+      <div className='max-w-screen-xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4 sm:px-10'>
         <div className='flex flex-wrap justify-between items-center'>
           { logoElement }
           <Button className='lg:order-2' variant='transparent' size='small'>
-            Items
+            Вход
           </Button>
-          <ul className='w-full lg:w-auto flex justify-center gap-2 lg:gap-8 mt-10 lg:mt-0 text-white text-xl font-thin lg:order-1'>
-            {
-              ['Invest', 'Real Estate', 'Crypto', 'Travel', 'Academy'].map((item, index) => {
-                return (
-                  <li key={index}>
-                    {item}
-                  </li>
-                );
-              })
-            }
+          <ul className='w-full lg:w-auto flex justify-center gap-4 xs:gap-6 lg:gap-8 mt-10 lg:mt-0 text-white text-sm xs:text-xl font-thin lg:order-1'>
+            <Tab href='/sale' title='Private Sale' />
+            <Tab href='/swap' title='Swap' />
+            <Tab href='/farming' title='Farming' />
+            <Tab href='/referral' title='Referral' />
+            <Tab href='#' title='White Paper' />
           </ul>
         </div>
         
