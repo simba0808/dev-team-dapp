@@ -53,7 +53,7 @@ const Landing: FC = () => {
           </div>
           <div className='relative w-[500px] h-[500px] hidden md:flex items-center justify-center'>
             <div className='z-0 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-full h-full yellow__gradient'></div>
-            <img src='/img/wallet.png' className='z-10' alt='wallet' />
+            <img src='/img/Wallet.png' className='z-10' alt='wallet' />
           </div>
         </div>
       </div>
