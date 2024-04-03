@@ -6,6 +6,7 @@ import Spinner from '@/lib/components/spinnner/Spinner';
 import ConnectWalletModal from '@/lib/web3/components/ConnectWalletModal';
 import Header from '@/lib/components/layout/Header';
 import Background from '@/app/Background';
+import MaskMaker from '@/lib/components/MaskMaker';
 
 import ProviderButton from './ProviderButton';
 import ConnectWeb3Wallet from './ConnectWeb3Wallet';
@@ -29,8 +30,8 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
         <Background />
       </div>
       <Header />
-      <div className='min-h-[100vh] flex items-center justify-center'>
-        <div className='flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
+      <div className='relative min-h-[100vh] flex items-center justify-center'>
+        <div className='z-10 flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
           <h1 className='text-center mb-4'>
             Log in to ProGFi
           </h1>
@@ -86,6 +87,8 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
             </div>
           </div>
         </div>
+        <MaskMaker className='-top-[30%]' width={500} height={500} position='top-right' color='blue' />
+        <MaskMaker className='-top-[50%] -left-[10%]' width={400} height={400} color='green' />
       </div>
       <ConnectWalletModal isOpen={web3ModalOpen} onClose={closeWeb3Modal}/>
     </>
