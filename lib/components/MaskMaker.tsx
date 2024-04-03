@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-const MaskMaker: FC<Props> = ({width, height, position, color='green', className}) => {
+const MaskMaker: FC<Props> = ({width, height, position, color, className}) => {
   return (
     <div 
       className={
