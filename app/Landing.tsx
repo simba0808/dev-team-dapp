@@ -62,7 +62,9 @@ const Landing: FC = () => {
         { 
           BackgroundMask2
         }
-        <SwapWidget />
+        <div className='max-w-screen-xl px-4 sm:px-10 mx-auto'>
+          <SwapWidget />
+        </div>
       </div>
   
       <div className='relative py-6 sm:py-20'>
