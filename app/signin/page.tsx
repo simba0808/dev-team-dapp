@@ -39,10 +39,10 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
   ), []);
 
   return (
-    <div className='relative'>
+    <div className='relative min-h-[100vh]'>
       <Header trailing={headerTrailing} />
       <Background />
-      <div className='pt-32 pb-12 flex items-center justify-center px-4'>
+      <div className='min-h-[90%] pt-32 pb-10 flex justify-center px-4'>
         <div className='z-10 flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
           <h1 className='text-center mb-4'>
             Log in to ProGFi
@@ -51,7 +51,6 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
             <ConnectWeb3Wallet />
             {/* <Button onClick={() => setWeb3ModalOpen(true)} variant='transparent' size='large'>
               Connect Wallet
-              Начинающие модели на условиях ТФП для портфолио
             </Button> */}
             <div className='flex flex-col gap-4 divide-y-[1px]'>
               { !session ?
