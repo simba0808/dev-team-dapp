@@ -53,7 +53,7 @@ const Footer: FC = () => {
   };
 
   return (
-    <div className='w-full pt-6 pb-4 text-white bg-black/40'>
+    <div className='z-20 w-full pt-6 pb-4 text-white bg-black/40'>
       <div className='max-w-screen-xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4 sm:px-10'>
         <div className='flex flex-wrap justify-between items-center'>
           { logoElement }
