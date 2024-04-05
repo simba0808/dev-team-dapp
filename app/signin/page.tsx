@@ -42,7 +42,7 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
     <div className='relative min-h-[100vh]'>
       <Header trailing={headerTrailing} />
       <Background />
-      <div className='min-h-[90%] pt-32 pb-10 flex justify-center px-4'>
+      <div className='min-h-[90vh] pt-32 pb-10 flex justify-center px-4'>
         <div className='z-10 flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>
           <h1 className='text-center mb-4'>
             Log in to ProGFi
