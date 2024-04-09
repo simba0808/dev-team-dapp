@@ -1,0 +1,30 @@
+
+.rdg-header-row {
+  background: var(--color-light-gray);
+  color: var(--color-medium-gray);
+  font-weight: 500;
+  /*text-align: left;*/
+}
+
+.rdg-header-sort-name {
+  margin-right: 4px;
+}
+
+.rdg-empty {
+  block-size: var(--rdg-header-row-height);
+}
+
+.rdg-row {
+  background-color: transparent;
+}
+
+.rdg-cell {
+  outline: none;
+  border-inline-end: 1px solid var(--rdg-border-color);
+  border-block-end: 1px solid var(--rdg-border-color);
+}
+
+.rdg-sort-arrow {
+  display: inline;
+}
+
