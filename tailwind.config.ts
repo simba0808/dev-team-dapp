@@ -19,6 +19,9 @@ const config: Config = {
         'light-cyan': 'var(--color-light-cyan)',
         'cyan': 'var(--color-cyan)',
         'dark-green': 'var(--color-dark-green)',
+      },
+      screens: {
+        xs: '480px',
       }
     },
   },
