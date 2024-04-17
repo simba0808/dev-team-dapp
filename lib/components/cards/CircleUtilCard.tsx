@@ -1,3 +1,4 @@
+'use client';
 const CircleUtilCard = () => {
   return (
     <div className='relative max-w-[720px] mx-auto aspect-square rounded-full bg-[#0A2238]'>
