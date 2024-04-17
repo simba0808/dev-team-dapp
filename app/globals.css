@@ -15,6 +15,29 @@
 
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #071C2E;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #96717150;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2a4964;
+  border-radius: 5px;
+  right: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -62,6 +85,74 @@ h3 {
   .surface-compact {
     @apply surface p-0 rounded-lg
   }
+
+  .circle-top {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+  .circle-top-right {
+    position: absolute;
+    right: 7%;
+    top: 25%;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+  .circle-bottom-right {
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+  .circle-bottom {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+  .circle-bottom-left {
+    position: absolute;
+    left: 5%;
+    bottom: 25%;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+  .circle-top-left {
+    position: absolute;
+    left: 7%;
+    top: 25%;
+    font-weight: 800;
+    text-align: center;
+    line-height: 95%;
+    color: #00FFEB;
+    text-shadow: 0 0 5px #00FFEB;
+  }
+
+  @media screen {
+    
+  }
 }
 
 @layer utilities {
@@ -83,6 +174,10 @@ h3 {
     background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #00E0FF 100%);
     filter: blur(123px);
   }
+  .light__blue__gradient {
+    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #2fb5f3 100%);
+    filter: blur(180px);
+  }
   .white__gradient {
     background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #00AEEF 100%);
     filter: blur(110px);
@@ -92,8 +187,52 @@ h3 {
     filter: blur(110px);
   }
 
+  .pink__gradient {
+    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #d351e4 100%);
+    filter: blur(110px);
+  }
+
   .sidebar {
     -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .text-landing-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .text-landing-content {
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .text-shadow-blue {
+    color: #00F0FF;
+    text-shadow: 0 0 5px #00F0FF;
+  }
+
+  .text-shadow-green {
+    color: #42FF00;
+    text-shadow: 0 0 5px #42FF00;
+  }
+
+  .box-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @media (max-width: 1024px) {
+    .text-landing-title {
+      font-size: 20px;
+    }
+
+    .text-landing-content {
+      font-size: 12px;
+    }
   }
 }

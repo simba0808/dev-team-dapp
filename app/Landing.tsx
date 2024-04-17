@@ -2,18 +2,18 @@
 import {useMemo} from 'react';
 import Image from 'next/image';
 
-import SwapWidget from '@/app/(main)/swap/SwapWidget';
-import ReferralBoard from '@/lib/components/cards/ReferalCard';
-import ProfCard from '@/lib/components/cards/ProfCard';
+import CircleUtilCard from '@/lib/components/cards/CircleUtilCard';
+import MainBackground from '@/lib/components/Background';
+import BorderContainer from '@/lib/components/BorderContainer';
 import Button from '@/lib/components/button/Button';
-import MaskBackground3 from '@/public/img/MaskBackground3.svg';
+import PriceTable from '@/lib/components/tables/PriceTable';
 
 import type {FC} from 'react';
 
 const Landing: FC = () => {
   const BackgroundMask = useMemo(() => {
     return (
-      <Image 
+      <Image
         src="/img/MaskBackground.svg"
         alt='mask'
         className='-z-10 object-cover'
@@ -24,7 +24,7 @@ const Landing: FC = () => {
 
   const BackgroundMask2 = useMemo(() => {
     return (
-      <Image 
+      <Image
         src='/img/MaskBackground2.svg'
         alt='mask2'
         className='-z-10 object-cover'
@@ -34,50 +34,143 @@ const Landing: FC = () => {
   }, []);
 
   return (
-    <div className='relative w-full'>
-      <div className='z-10 relative sm:h-[100vh] py-32 sm:py-0 '>
-        { BackgroundMask }
-        <div className='max-w-screen-xl w-full h-full px-4 sm:px-10 mx-auto flex items-center'>
-          <div className='flex md:justify-between items-center gap-8 py-10'>
-            <div className='md:basis-1/3'>
-              <h1 className='mb-4 text-4xl md:text-6xl xl:text-7xl font-medium text-white leading-[150%]'>ACCOUNT BALANCE</h1>
-              <p className='mb-10 text-xl text-white '>Your PGS account token balance</p>
-              <Button
-                className='rounded-[3.5rem] box-shadow'
-                variant='transparent'
-                size='large'
-              >
-                Request Rewards Sync
+    <div className='relative w-full text-white'>
+      <MainBackground />
+      <section className='relative max-w-screen-2xl min-h-[100vh] flex items-center px-4 sm:px-10 pt-32 mx-auto'>
+        <div className='w-full flex flex-col lg:flex-row justify-between items-center'>
+          <div className='flex-1 flex justify-end lg:order-2'>
+            <div className='relative max-w-[80%] mx-auto  lg:mx-0'>
+              <div className='-z-10 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-[100%] h-[100%] pink__gradient'></div>
+              <img className='z-10' src='/img/HumanIntelligence.png' alt='human' />
+            </div>
+          </div>
+          <div className='flex-1 flex md:justify-between items-center gap-8'>
+            <div className=''>
+              <img className='max-w-[80%] hidden lg:block' src='/img/Logo.svg' alt='' />
+              <div className='mb-12 lg:mb-6 lg:text-left text-center'>
+                <p className='lg:mt-6 text-[20px] lg:text-[26px] font-bold leading-[150%] lg:leading-[110%] uppercase'>Participate in building AI-powered products with Resolute</p>
+                <p className='mt-3 text-[12px] lg:text-[18px] font-light uppercase'>
+                  <b>Resolut AI</b> aims to create innovative artificial intelligence-based solutions that improve the efficiency and security of blockchain and cryptocurrency transactions.
+                </p>
+              </div>
+              <div className='lg:text-left text-center'>
+                <p className='text-[20px] lg:text-[26px] font-bold uppercase'>Our mission</p>
+                <p className='mt-3 text-[12px] lg:text-[18px] font-light uppercase'>
+                  We develop a wide range of products and services based on artificial intelligence.
+                  Our mission is to make the world of cryptocurrencies more accessible and secure for all participants by providing them with advanced technologies and tools based on artificial intelligence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='relative max-w-screen-2xl sm:h-[100vh] px-4 sm:px-10 mx-auto'>
+        <div className='flex flex-col lg:mt-10'>
+          <div className='relative lg:order-2 px-4  overflow-clip'>
+            <CircleUtilCard />
+          </div>
+          <p className='hidden lg:block text-center text-[20px] lg:text-[26px] font-semibold uppercase'>
+            Resolut AI creates an entire ecosystem governed by <br /> advanced AI technologies of its own design.
+          </p>
+
+        </div>
+      </section>
+
+      <section className='relative max-w-screen-2xl sm:h-[100vh] flex items-center justify-center px-4 sm:px-10 py-6 sm:py-20 mx-auto'>
+        <div className='w-full flex items-center gap-4'>
+          <div className='flex-1 flex md:justify-between items-center gap-8 py-10'>
+            <div>
+              <p className='text-[20px] lg:text-[26px] text-center lg:text-left font-bold uppercase'>
+                Application of artificial<br/>Resolut AI
+              </p>
+              <ul className='ml-4 mt-12 space-y-2 text-[12px] lg:text-[18px] font-light list-disc uppercase'>
+                <li>Resolut Lab: research and experimentation</li>
+                <li>Resolut DApp: access to blockchain services</li>
+                <li>Resolut Blockchain: deploying decentralized applications and smart contracts</li>
+                <li>Resolut Token: participation in the ecosystem</li>
+                <li>Resolut Smart Contract: automating and securing transactions</li>
+                <li>Resolut Dev: developing innovative solutions</li>
+              </ul>
+            </div>
+          </div>
+          <div className='flex-1 hidden lg:flex justify-center'>
+            <img src='/img/Face.svg' alt='face' />
+          </div>
+        </div>
+      </section>
+
+      <section className='relative max-w-screen-2xl sm:h-[80vh] px-4 sm:px-10 py-6 sm:py-20 mx-auto'>
+        <div className='w-full flex flex-col lg:flex-row lg:gap-20'>
+          <div className='flex-1 relative flex flex-col justify-center text-center'>
+            <p className='text-landing-title'>Internal token:</p>
+            <span className='lg:py-2 text-landing-content'>Resolut Flow Token</span>
+            <span className='pb-4 text-[40px] font-bold text-shadow-blue'>(RFT)</span>
+            <div className='min-h-[250px]'>
+              <BorderContainer>
+                <p className='p-10 text-landing-content bg-dark-blue'>
+                  RFT (Resolut Flow Token) is an internal token designed to enable transactions within the Resolut AI ecosystem. 
+                  RFT simplifies and optimizes internal transactions and exchanges within the platform.
+                </p>
+              </BorderContainer>
+            </div>
+            <img className='-z-10 absolute opacity-20' src='/img/FrameBlue.png' alt='frame' />
+          </div>
+          <div className='flex-1 relative flex flex-col justify-center text-center'>
+            <p className='text-landing-title'>Public Coin:</p>
+            <span className='lg:py-2 text-landing-content'>Resolut Flow Coin (PFC)</span>
+            <span className='pb-4 text-[40px] font-bold text-shadow-green'>(RFC)</span>
+            <div className='min-h-[250px]'>
+              <BorderContainer>
+                <p className='p-10 bg-dark-blue text-landing-content'>
+                  RFC (Resolut Flow Coin) is a public coin available for trading on various decentralized and centralized cryptocurrency exchanges (DEX/CEX). 
+                  RFC serves as an instrument for external transactions and can be used as an investment asset.
+                </p>
+              </BorderContainer>
+            </div>
+            <img className='-z-10 absolute opacity-20' src='/img/FrameGreen.svg' alt='frame' />
+          </div>
+        </div>
+        <p className='hidden lg:block text-[18px] text-center font-semibold uppercase'>
+          The price of Resolut Flow Token will grow daily and in exactly one year it will reach 300%. 
+          After that you 
+          <br/>will be able to exchange it for Resolut Flow Coin and start trading on the exchange, having fixed your profit.
+          <br/>Accordingly, the earlier you participate in the Private Sale, the more you will earn.
+        </p>
+      </section>
+
+      <section className='max-w-screen-2xl sm:h-[180vh] px-4 sm:px-10 py-6 sm:pb-20 mx-auto'>
+        <p className='mb-16 text-[40px] font-bold uppercase'>Private Sale</p>
+        <div className='border border-slate-400 rounded-3xl  bg-black/20'>
+          <div className='max-w-[90%] px-6 py-16 mx-auto'>
+            <p className='mb-16 text-landing-title'>Private Sale</p>
+            <BorderContainer>
+              <div className='p-2 bg-slate-900 rounded-2xl'>
+                <div className='w-[200px] h-[80px] rounded-xl box-shadow bg-[#0D9BD2]'>
+                    
+                </div>
+              </div>
+            </BorderContainer>
+            <div className='mt-14 flex justify-end'>
+              <Button className='px-10 py-3 box-shadow' variant='transparent' size='large'>
+                Buy Tokens
               </Button>
             </div>
           </div>
-          <div className='relative w-[500px] h-[500px] hidden md:flex items-center justify-center'>
-            <div className='z-0 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-full h-full yellow__gradient'></div>
-            <img src='/img/Wallet.png' className='z-10' alt='wallet' />
+        </div>
+
+        <div className='flex flex-col mt-20 p-16 bg-black/20 backdrop-blur-md border border-slate-400 rounded-3xl '>
+          <p className='text-[32px] font-bold uppercase'>RFT token price graph</p>
+          <div className='my-2 h-[1px] bg-slate-50/20'></div>
+          <p className='text-landing-content'>Income for the period amounted to XX$</p>
+          <div className='relative'>
+            <div className='box-center  max-w-[80%]  text-[10rem] font-extrabold'>
+              
+            </div>
+            <PriceTable />
           </div>
         </div>
-      </div>
-      
-      <div className='z-10 relative py-6 sm:py-20'>
-        { 
-          BackgroundMask2
-        }
-        <div className='max-w-screen-xl px-4 sm:px-10 mx-auto'>
-          <SwapWidget />
-        </div>
-      </div>
-  
-      <div className='relative py-6 sm:py-20'>
-        <MaskBackground3 className='z-0 absolute -top-[30%] w-full h-full' />
-        <div className='max-w-screen-xl w-full flex items-center justify-center px-4 sm:px-10 mx-auto'>
-          <div className='w-full text-white flex flex-col items-center gap-4'>
-            <p className='text-3xl md:text-5xl'><span className='text-4xl md:text-6xl'>R</span>EFERRAL <span className='text-4xl md:text-6xl'>S</span>TATS</p>
-            <input type='text' className='max-w-[80%] w-full mx-auto py-2  bg-[#05111C] text-center rounded-md' defaultValue='Реферальная ссылка' />
-            <ReferralBoard />
-            <ProfCard />
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -20,6 +20,10 @@ const config: Config = {
         'cyan': 'var(--color-cyan)',
         'dark-green': 'var(--color-dark-green)',
       },
+      boxShadow: {
+        'inner-top': 'inset 0 10px 3px rgba(0, 0, 0, 0.3)',
+        'inner-bottom': 'inset 0 10px 3px rgba(255, 255, 255, 0.1)'
+      },
       screens: {
         xs: '480px',
       }

@@ -1,53 +1,94 @@
 'use client';
-import Big from 'big.js';
-import {NumericFormat} from 'react-number-format';
+import {useMemo} from 'react';
+import Image from 'next/image';
 
-import {useAppSelector} from '@/lib/store/hooks';
-import BadgeRewardButton from '@/lib/components/button/BadgeRewardButton';
-import DimpIcon from '@/public/img/dimp.svg';
+import SwapWidget from '@/app/(main)/swap/SwapWidget';
+import ReferralBoard from '@/lib/components/cards/ReferalCard';
+import ProfCard from '@/lib/components/cards/ProfCard';
+import Button from '@/lib/components/button/Button';
+import MaskBackground3 from '@/public/img/MaskBackground3.svg';
 
-const Balance = () => {
-  const user = useAppSelector(state => state.auth.user);
+import type {FC} from 'react';
+
+const Landing: FC = () => {
+  const BackgroundMask = useMemo(() => {
+    return (
+      <Image 
+        src="/img/MaskBackground.svg"
+        alt='mask'
+        className='-z-10 object-cover'
+        fill
+      />
+    );
+  }, []);
+
+  const BackgroundMask2 = useMemo(() => {
+    return (
+      <Image 
+        src='/img/MaskBackground2.svg'
+        alt='mask2'
+        className='-z-10 object-cover'
+        fill
+      />
+    );
+  }, []);
+
+  return (
+    <div className='relative w-full text-white'>
+      <section className='z-10 relative sm:h-[100vh] py-32 sm:py-0 '>
+        {BackgroundMask}
+        <div className='max-w-screen-2xl w-full h-full px-4 sm:px-10 mx-auto flex items-center'>
+          <div className='w-full flex justify-between'>
+            <div className='flex md:justify-between items-center gap-8 py-10'>
+              <div className='md:basis-1/3'>
+                <h1 className='mb-4 text-4xl md:text-6xl xl:text-7xl font-bold leading-[150%]'>
+                  <p><span className='text-5xl md:text-7xl xl:text-8xl'>A</span>CCOUNT</p>
+                  <p><span className='text-5xl md:text-7xl xl:text-8xl'>B</span>ALANCE</p>
+                </h1>
+                <p className='mb-10 text-[20px] font-thin'>Your Resolut account token balance</p>
+                <div>
+                  <Button
+                    className='text-[1.5em] rounded-[3.5rem] box-shadow'
+                    variant='transparent'
+                    size='large'
+                  >
+                    Request Rewards Sync
+                  </Button>
+                  <p className='mt-4 ml-8 text-[16px] font-thin'>*sync rewards to withdraw earnings</p>
+                </div>
+              </div>
+            </div>
+            <div className='relative w-[800px] h-[703px] hidden md:flex items-center justify-center'>
+              <div className='z-0 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-[80%] h-[80%] light__blue__gradient'></div>
+              <img className='w-full h-full absolute left-0 right-0 top-0 bottom-0' src='/img/LetterGroup.svg' alt='letter' />
+              <img src='/img/Wallet.svg' className='max-w-[75%] z-10' alt='wallet' />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <div className='z-10 relative py-6 sm:py-20'>
+        { 
+          BackgroundMask2
+        }
+        <div className='max-w-screen-xl px-4 sm:px-10 mx-auto'>
+          <SwapWidget />
+        </div>
+      </div>
   
-  return (
-    <div className='flex flex-col divide-y-[1px] divide-white text-white'>
-      <div className='py-3'>
-        <h3 className='text-center'>Active DIMP Balance</h3>
-        <div className='flex flex-row justify-center'>
-          <DimpIcon className='inline-block fill-current align-bottom drop-shadow-lg text-white' height={36} />
-          <div className='text-3xl font-bold'>
-            <span className='drop-shadow-lg text-3xl'>&nbsp;
-              <NumericFormat
-                value={(new Big(user?.dimp ?? 0)).round(3,0).toFixed(3)} displayType='text' thousandSeparator={' '}
-              />
-            </span>
+      <div className='relative py-6 sm:py-20'>
+        <MaskBackground3 className='z-0 absolute -top-[30%] w-full h-full' />
+        <div className='max-w-screen-xl w-full flex items-center justify-center px-4 sm:px-10 mx-auto'>
+          <div className='w-full text-white flex flex-col items-center gap-4'>
+            <p className='text-3xl md:text-5xl'><span className='text-4xl md:text-6xl'>R</span>EFERRAL <span className='text-4xl md:text-6xl'>S</span>TATS</p>
+            <input type='text' className='max-w-[80%] w-full mx-auto py-2  bg-[#05111C] text-center rounded-md' defaultValue='Реферальная ссылка' />
+            <ReferralBoard />
+            <ProfCard />
           </div>
         </div>
-      </div>
-      <div className='py-3'>
-        <h3 className='text-center'>DIMP Rewards</h3>
-        <div className='flex flex-row justify-center mb-2'>
-          <DimpIcon className='inline-block fill-current align-bottom drop-shadow-lg text-white' height={36} />
-          <div className='text-3xl font-bold'>
-            <span className='drop-shadow-lg text-3xl'>&nbsp;
-              <NumericFormat
-                value={(new Big(user?.rewards ?? 0)).round(3,0).toFixed(3)} displayType='text' thousandSeparator={' '}
-              />
-            </span>
-          </div>
-        </div>
-        <BadgeRewardButton dimpRewards={user?.rewards || 0} />
       </div>
     </div>
   );
 };
 
-const Home = () => {
-  return (
-    <div className='flex flex-col'>
-      <Balance />
-    </div>
-  );
-};
-
-export default Home;
+export default Landing;
