@@ -99,9 +99,7 @@ const MainLayout: FC<Props> = ({children}) => {
         <Background />
       </div>
       <Header trailing={headerTrailing} />
-      <div className='max-w-screen-xl w-full px-4 sm:px-10 mx-auto py-32 flex justify-center items-center'>
-        {children}
-      </div>
+      {children}
     </>
   );
 };
