@@ -3,7 +3,6 @@ import {useRouter} from 'next/navigation';
 import {useCallback, useMemo} from 'react';
 
 import Header from '@/lib/components/layout/Header';
-import Footer from '@/lib/components/layout/Footer';
 import Button from '@/lib/components/button/Button';
 
 import Landing from './Landing';
@@ -22,10 +21,9 @@ export default function Home() {
   ), []);
   
   return (
-    <div className='relative min-h-screen bg-dark-blue'>
+    <div className='relative min-h-screen'>
       <Header trailing={headerTrailing} />
       <Landing />
-      <Footer />
     </div>
   );
 }

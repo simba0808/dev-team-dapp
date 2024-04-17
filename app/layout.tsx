@@ -1,7 +1,7 @@
 
 import './globals.css';
 
-import {Inter} from 'next/font/google';
+import {Montserrat} from 'next/font/google';
 import {getServerSession} from 'next-auth';
 
 import ReduxProvider from '@/lib/store/ReduxProvider';
@@ -12,7 +12,7 @@ import authConfig from '@/lib/auth/authConfig';
 
 import type {Metadata} from 'next';
 
-const inter = Inter({subsets: ['latin']});
+const inter = Montserrat({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: 'ProgFi Group System',
