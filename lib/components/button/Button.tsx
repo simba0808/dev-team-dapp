@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
           'group relative font-bold text-center bg-dark-magenta text-sm cursor-pointer disabled:pointer-events-none',
           size === 'small' && 'py-2 px-3 rounded-lg text-xs font-semibold',
           size === 'medium' && 'py-3 px-3 rounded-xl text-sm font-semibold',
-          size === 'large' && 'py-4 px-6 rounded-xl text-xl font-semibold',
+          size === 'large' && 'py-4 px-8 rounded-xl text-xl font-semibold',
           variant === 'gradient' && 'bg-gradient-to-r from-yellow to-pale-magenta text-dark-magenta',
           variant === 'gray' && 'bg-white/80 text-slate-500',
           variant === 'transparent' && 'bg-light-blue text-white',
