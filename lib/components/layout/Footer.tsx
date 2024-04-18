@@ -4,8 +4,6 @@ import {useCallback, useMemo} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Button from '../button/Button';
-
 import type {FC} from 'react';
 
 type TabProps = {
@@ -53,14 +51,25 @@ const Footer: FC = () => {
   };
 
   return (
-    <div className='z-20 absolute bottom-0 w-full pt-6 pb-4 text-white bg-black/40'>
+    <div className='z-20 absolute bottom-0 w-full py-8 text-white bg-black/80'>
       <div className='max-w-screen-2xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4 sm:px-10'>
-        <div className='flex flex-wrap justify-between items-center'>
+        <div className='flex flex-col justify-center space-y-4 lg:flex-row lg:justify-between items-center'>
           { logoElement }
-          <Button className='lg:order-2' variant='transparent' size='small'>
-            Вход
-          </Button>
-          <ul className='w-full lg:w-auto flex justify-center gap-4 xs:gap-6 lg:gap-8 mt-10 lg:mt-0 text-white text-sm sm:text-xl font-thin lg:order-1'>
+          <div>
+            <div className='flex gap-2 justify-end'>
+              <span className='p-1 rounded-full border-2 border-light-blue'>
+                <Image src='/img/Twitter.svg' width={30} height={30} alt='Tweat' />
+              </span>
+              <span className='p-1 rounded-full border-2 border-light-blue'>
+                <Image src='/img/Telegram.svg' width={30} height={30} alt='Tele' />
+              </span>
+              <span className='p-1 rounded-full border-2 border-light-blue'>
+                <Image src='/img/Instagram.svg' width={30} height={30} alt='Insta' />
+              </span>
+            </div>
+            <p className='mt-1 text-center'>Support@resolut.ai</p>
+          </div>
+          <ul className='hidden lg:flex w-full lg:w-auto justify-center gap-4 xs:gap-6 lg:gap-8 text-white text-sm sm:text-lg font-thin lg:order-1'>
             <Tab href='/sale' title='Private Sale' />
             <Tab href='/swap' title='Swap' />
             <Tab href='/farming' title='Farming' />
@@ -68,31 +77,7 @@ const Footer: FC = () => {
             <Tab href='#' title='White Paper' />
           </ul>
         </div>
-        
-        <div className='w-full h-[1px] bg-gradient-to-r from-transparent from-0% via-30% via-white to-100% to-transparent'></div>
-        
-        <div className='relative flex flex-wrap justify-center lg:justify-between items-center text-gray-500 gap-4'>
-          <p className=''>All rights reserved 2024&copy;</p>
-          <ul className='w-full lg:w-auto grid lg:grid-cols-4 grid-cols-2 justify-end gap-6 lg:order-2'>
-            {
-              ['Terms of use', 'Aml policy', 'KYC policy', 'Privacy policy'].map((item, index) => {
-                return (
-                  <li key={index} className='text-center underline underline-offset-4 hover:cursor-pointer'>
-                    {item}
-                  </li>
-                );
-              })
-            }
-          </ul>
-          <div className='flex gap-2 justify-end lg:order-1'>
-            <span className='p-1 rounded-full border-2 border-light-blue'>
-              <Image src='/img/Telegram.svg' width={30} height={30} alt='Tele' />
-            </span>
-            <span className='p-1 rounded-full border-2 border-light-blue'>
-              <Image src='/img/Instagram.svg' width={30} height={30} alt='Insta' />
-            </span>
-          </div>
-        </div>
+      
       </div>
     </div>
   );

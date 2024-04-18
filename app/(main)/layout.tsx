@@ -14,7 +14,6 @@ import Profile from '@/lib/profile/Profile';
 import Wallet from '@/lib/wallet/wallet';
 import Button from '@/lib/components/button/Button';
 import SiweButton from '@/app/signin/SiweButton';
-import Background from '@/app/Background';
 
 import type {FC, ReactNode} from 'react';
 
@@ -96,7 +95,6 @@ const MainLayout: FC<Props> = ({children}) => {
   return (
     <>
       <div className="fixed w-[100%] min-h-screen top-0 left-0 -z-10 bg-dark-blue">
-        <Background />
       </div>
       <Header trailing={headerTrailing} />
       {children}

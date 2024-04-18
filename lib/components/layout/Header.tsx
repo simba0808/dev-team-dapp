@@ -61,7 +61,7 @@ export const Header: FC<Props> = ({
   };
 
   return (
-    <div className={`z-20 fixed top-0 w-[100%] flex items-center py-4 bg-black/40 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
+    <div className={`z-20 fixed top-0 w-[100%] flex items-center py-4 bg-black/80 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-2xl w-full flex flex-wrap justify-between items-center mx-auto px-4 sm:px-10'>
         { logoElement }
         <div className='flex gap-4 lg:order-2'>

@@ -4,6 +4,7 @@ import {useCallback, useMemo} from 'react';
 
 import Header from '@/lib/components/layout/Header';
 import Button from '@/lib/components/button/Button';
+import Footer from '@/lib/components/layout/Footer';
 
 import Landing from './Landing';
 
@@ -24,6 +25,7 @@ export default function Home() {
     <div className='relative min-h-screen'>
       <Header trailing={headerTrailing} />
       <Landing />
+      <Footer />
     </div>
   );
 }
