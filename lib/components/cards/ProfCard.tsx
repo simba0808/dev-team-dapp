@@ -10,15 +10,15 @@ const ProfCard = () => {
 
   return (
     <div className='w-full flex flex-col mt-6'>
-      <p className='text-center mt-4'>Your Referral performance</p>
+      <p className='hidden lg:block text-center mt-4'>Your Ambassador performance</p>
       <BorderContainer className='mt-6 shadow-2xl shadow-black/70'>
-        <div className='bg-dark-blue z-10 overflow-hidden relative w-full px-10 py-8 grid grid-cols-1 sm:grid-cols-7 gap-10 sm:gap-4 rounded-2xl text-5xl text-center text-cyan font-semibold'>
+        <div className='z-10  relative w-full flex justify-between px-6 xs:px-10 lg:px-36 py-8 rounded-2xl text-5xl text-center text-cyan font-semibold bg-dark-blue overflow-hidden'>
           <div className="absolute left-[50%] -translate-x-[50%] -top-[95%] w-[30%] h-full green__gradient">
           </div>
-          <div className='sm:col-span-3'>
-            <p className='text-2xl sm:text-xl lg:text-2xl mb-4'>
-              <span className='text-2xl lg:text-4xl'>R</span>EFERRAL&nbsp;&nbsp;
-              <span className='text-2xl lg:text-4xl'>P</span>ARTNERS
+          <div className=''>
+            <p className='text-sm sm:text-xl xl:text-4xl mb-4'>
+              <span className='text-lg sm:text-3xl xl:text-5xl'>R</span>EFERRAL&nbsp;&nbsp;
+              <span className='text-lg sm:text-3xl xl:text-5xl'>P</span>ARTNERS
             </p>
             <span>
               {
@@ -30,25 +30,10 @@ const ProfCard = () => {
               }
             </span>
           </div>
-          <div className='sm:col-span-2'>
-            <p className='text-2xl sm:text-xl lg:text-2xl mb-4'>
-              <span className='text-2xl lg:text-4xl'>PROF</span>&nbsp;&nbsp;
-              <span className='text-2xl lg:text-4xl'>E</span>ARNED
-            </p>
-            <span>
-              {
-                millify((new Big(stats.dimp_total)).toNumber(), {
-                  precision: 3,
-                  locales: 'mfe',
-                  lowercase: true,
-                })
-              }
-            </span>
-          </div>
-          <div className='sm:col-span-2'>
-            <p className='text-2xl sm:text-xl lg:text-2xl mb-4'>
-              <span className='text-2xl lg:text-4xl'>PROF</span>&nbsp;&nbsp;
-              <span className='text-2xl lg:text-4xl'>E</span>ARNED
+          <div className=''>
+            <p className='text-sm sm:text-xl xl:text-4xl mb-4'>
+              <span className='text-lg sm:text-3xl xl:text-5xl'>RFT</span>&nbsp;&nbsp;
+              <span className='text-lg sm:text-3xl xl:text-5xl'>E</span>ARNED
             </p>
             <span>
               {

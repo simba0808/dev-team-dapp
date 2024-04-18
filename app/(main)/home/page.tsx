@@ -2,11 +2,10 @@
 import {useMemo} from 'react';
 import Image from 'next/image';
 
-import SwapWidget from '@/app/(main)/swap/SwapWidget';
 import ReferralBoard from '@/lib/components/cards/ReferalCard';
 import ProfCard from '@/lib/components/cards/ProfCard';
 import Button from '@/lib/components/button/Button';
-import MaskBackground3 from '@/public/img/MaskBackground3.svg';
+import BalanceCard from '@/lib/components/cards/BalanceCard';
 
 import type {FC} from 'react';
 
@@ -16,18 +15,7 @@ const Landing: FC = () => {
       <Image 
         src="/img/MaskBackground.svg"
         alt='mask'
-        className='-z-10 object-cover'
-        fill
-      />
-    );
-  }, []);
-
-  const BackgroundMask2 = useMemo(() => {
-    return (
-      <Image 
-        src='/img/MaskBackground2.svg'
-        alt='mask2'
-        className='-z-10 object-cover'
+        className='-z-10 object-cover lg:block hidden'
         fill
       />
     );
@@ -35,11 +23,11 @@ const Landing: FC = () => {
 
   return (
     <div className='relative w-full text-white'>
-      <section className='z-10 relative sm:h-[100vh] py-32 sm:py-0 '>
+      <section className='relative lg:h-[100vh] pt-32 pb-20 lg:py-0'>
         {BackgroundMask}
         <div className='max-w-screen-2xl w-full h-full px-4 sm:px-10 mx-auto flex items-center'>
           <div className='w-full flex justify-between'>
-            <div className='flex md:justify-between items-center gap-8 py-10'>
+            <div className='hidden md:flex md:justify-between items-center gap-8 py-10'>
               <div className='md:basis-1/3'>
                 <h1 className='mb-4 text-4xl md:text-6xl xl:text-7xl font-bold leading-[150%]'>
                   <p><span className='text-5xl md:text-7xl xl:text-8xl'>A</span>CCOUNT</p>
@@ -58,32 +46,52 @@ const Landing: FC = () => {
                 </div>
               </div>
             </div>
-            <div className='relative w-[800px] h-[703px] hidden md:flex items-center justify-center'>
-              <div className='z-0 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-[80%] h-[80%] light__blue__gradient'></div>
-              <img className='w-full h-full absolute left-0 right-0 top-0 bottom-0' src='/img/LetterGroup.svg' alt='letter' />
-              <img src='/img/Wallet.svg' className='max-w-[75%] z-10' alt='wallet' />
+            <div className='relative lg:w-[800px] lg:h-[703px] md:flex items-center justify-center'>
+              <div className='-z-10 absolute left-[50%] top-[40%] -translate-x-[50%] -translate-y-[50%] w-[80%] h-[80%] light__blue__gradient'></div>
+              <img className='-z-10 w-full h-full absolute left-0 right-0 top-0 bottom-0' src='/img/LetterGroup.svg' alt='letter' />
+              <img src='/img/Wallet.svg' className='z-10 max-w-[75%] mx-auto lg:mx-0' alt='wallet' />
             </div>
           </div>
         </div>
+        <div className='absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#071C2E] to-transparent'>
+        </div>
+        <img className='hidden lg:block z-10 w-[25%] absolute top-[100%] left-0 -translate-y-[50%] opacity-40' src='/img/PatternLeft.svg' alt='pattern' />
+        <img className='block lg:hidden w-[25%] absolute top-[90%] right-0 -translate-y-[100%]' src='/img/PatternRight.svg' alt='pattern' />
       </section>
       
-      <div className='z-10 relative py-6 sm:py-20'>
-        { 
-          BackgroundMask2
-        }
-        <div className='max-w-screen-xl px-4 sm:px-10 mx-auto'>
-          <SwapWidget />
+      <div className='relative lg:mt-24 py-6 sm:py-20 bg-dark-blue'>
+        <div className='max-w-screen-2xl px-4 sm:px-10 mx-auto'>
+          <div className='w-full flex gap-4 sm:gap-10 justify-between'>
+            <BalanceCard type='Current token balance' amount={0} color='blue' position='middle-left' size='large' />
+            <BalanceCard token={false} type='Current usdt balance' amount={0} color='blue' position='bottom-right' size='large' />
+          </div>
+          <div className='w-full flex gap-2 sm:gap-10 mt-10 sm:mt-20 justify-between'>
+            <BalanceCard type='RFT received' amount={0} color='green' position='bottom-left' />
+            <BalanceCard type='RFT claimed' amount={0} color='green' />
+            <BalanceCard type='RFT pending' amount={0} color='green' position='top-right' />
+          </div>
+          <div className='flex justify-center mt-10'>
+            <Button size='large' variant='transparent' className='box-shadow' >
+              Buy NFT
+            </Button>
+          </div>
         </div>
+        <img className='block lg:hidden w-[25%] absolute top-[50%] left-0 translate-y-[50%]' src='/img/PatternBottomLeft.svg' alt='pattern' />
       </div>
   
-      <div className='relative py-6 sm:py-20'>
-        <MaskBackground3 className='z-0 absolute -top-[30%] w-full h-full' />
-        <div className='max-w-screen-xl w-full flex items-center justify-center px-4 sm:px-10 mx-auto'>
+      <div className='relative py-6 sm:py-20 mb-12'>
+        <div className='max-w-screen-2xl w-full flex items-center justify-center px-4 sm:px-10 mx-auto'>
           <div className='w-full text-white flex flex-col items-center gap-4'>
-            <p className='text-3xl md:text-5xl'><span className='text-4xl md:text-6xl'>R</span>EFERRAL <span className='text-4xl md:text-6xl'>S</span>TATS</p>
+            <p className='text-3xl md:text-5xl mb-4'><span className='text-4xl md:text-6xl'>R</span>EFERRAL <span className='text-4xl md:text-6xl'>S</span>TATS</p>
             <input type='text' className='max-w-[80%] w-full mx-auto py-2  bg-[#05111C] text-center rounded-md' defaultValue='Реферальная ссылка' />
+            <p className='text-center mb-4'>Partners in your referral Structure</p>
             <ReferralBoard />
             <ProfCard />
+            <div className='flex justify-center mt-10'>
+              <Button size='large' variant='transparent' className='box-shadow' >
+                Referral
+              </Button>
+            </div>
           </div>
         </div>
       </div>

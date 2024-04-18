@@ -6,7 +6,6 @@ import CircleUtilCard from '@/lib/components/cards/CircleUtilCard';
 import MainBackground from '@/lib/components/Background';
 import BorderContainer from '@/lib/components/BorderContainer';
 import Button from '@/lib/components/button/Button';
-import PriceTable from '@/lib/components/tables/PriceTable';
 
 import type {FC} from 'react';
 
@@ -65,26 +64,26 @@ const Landing: FC = () => {
         </div>
       </section>
 
-      <section className='relative max-w-screen-2xl sm:h-[100vh] px-4 sm:px-10 mx-auto'>
-        <div className='flex flex-col lg:mt-10'>
-          <div className='relative lg:order-2 px-4  overflow-clip'>
+      <section className='relative max-w-screen-2xl px-2 sm:px-10 mx-auto overflow-x-clip'>
+        <div className='flex flex-col mt-20'>
+          <div className='relative lg:order-2 px-4 lg:mt-10 overflow-clip'>
             <CircleUtilCard />
           </div>
           <p className='hidden lg:block text-center text-[20px] lg:text-[26px] font-semibold uppercase'>
             Resolut AI creates an entire ecosystem governed by <br /> advanced AI technologies of its own design.
           </p>
-
         </div>
+        <img className='-z-10 absolute top-0 left-[50%] -translate-y-[25%] -translate-x-[50%] lg:scale-100 scale-125' src='/img/Frame.svg' alt='frame' />
       </section>
 
-      <section className='relative max-w-screen-2xl sm:h-[100vh] flex items-center justify-center px-4 sm:px-10 py-6 sm:py-20 mx-auto'>
+      <section className='relative max-w-screen-2xl lg:h-[100vh] flex items-center justify-center px-8 sm:px-10 mx-auto'>
         <div className='w-full flex items-center gap-4'>
-          <div className='flex-1 flex md:justify-between items-center gap-8 py-10'>
+          <div className='flex-1 flex justify-center items-center gap-8 py-10'>
             <div>
-              <p className='text-[20px] lg:text-[26px] text-center lg:text-left font-bold uppercase'>
+              <p className='text-[20px] lg:text-[26px] text-center xs:text-left font-bold uppercase'>
                 Application of artificial<br/>Resolut AI
               </p>
-              <ul className='ml-4 mt-12 space-y-2 text-[12px] lg:text-[18px] font-light list-disc uppercase'>
+              <ul className='ml-4 mt-12 space-y-2 text-landing-content list-disc uppercase'>
                 <li>Resolut Lab: research and experimentation</li>
                 <li>Resolut DApp: access to blockchain services</li>
                 <li>Resolut Blockchain: deploying decentralized applications and smart contracts</li>
@@ -100,58 +99,54 @@ const Landing: FC = () => {
         </div>
       </section>
 
-      <section className='relative max-w-screen-2xl sm:h-[80vh] px-4 sm:px-10 py-6 sm:py-20 mx-auto'>
-        <div className='w-full flex flex-col lg:flex-row lg:gap-20'>
+      <section className='relative max-w-screen-2xl sm:h-[80vh] px-8 sm:px-10 mx-auto overflow-x-clip'>
+        <div className='w-full flex flex-col lg:items-start lg:flex-row gap-10 lg:gap-40'>
           <div className='flex-1 relative flex flex-col justify-center text-center'>
             <p className='text-landing-title'>Internal token:</p>
             <span className='lg:py-2 text-landing-content'>Resolut Flow Token</span>
             <span className='pb-4 text-[40px] font-bold text-shadow-blue'>(RFT)</span>
-            <div className='min-h-[250px]'>
-              <BorderContainer>
-                <p className='p-10 text-landing-content bg-dark-blue'>
-                  RFT (Resolut Flow Token) is an internal token designed to enable transactions within the Resolut AI ecosystem. 
-                  RFT simplifies and optimizes internal transactions and exchanges within the platform.
-                </p>
-              </BorderContainer>
+            <div className='lg:text-left text-center'>
+              <p className='lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 text-landing-content rounded-2xl'>
+                RFT (Resolut Flow Token) is an internal token designed to enable transactions within the Resolut AI ecosystem. 
+                RFT simplifies and optimizes internal transactions and exchanges within the platform.
+              </p>
             </div>
-            <img className='-z-10 absolute opacity-20' src='/img/FrameBlue.png' alt='frame' />
+            <img className='-z-10 absolute opacity-20 scale-125 lg:scale-100' src='/img/FrameBlue.png' alt='frame' />
           </div>
           <div className='flex-1 relative flex flex-col justify-center text-center'>
             <p className='text-landing-title'>Public Coin:</p>
             <span className='lg:py-2 text-landing-content'>Resolut Flow Coin (PFC)</span>
             <span className='pb-4 text-[40px] font-bold text-shadow-green'>(RFC)</span>
-            <div className='min-h-[250px]'>
-              <BorderContainer>
-                <p className='p-10 bg-dark-blue text-landing-content'>
-                  RFC (Resolut Flow Coin) is a public coin available for trading on various decentralized and centralized cryptocurrency exchanges (DEX/CEX). 
-                  RFC serves as an instrument for external transactions and can be used as an investment asset.
-                </p>
-              </BorderContainer>
+            <div className='lg:text-left text-center'>
+              <p className='lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 text-landing-content rounded-2xl'>
+                RFC (Resolut Flow Coin) is a public coin available for trading on various decentralized and centralized cryptocurrency exchanges (DEX/CEX). 
+                RFC serves as an instrument for external transactions and can be used as an investment asset.
+              </p>
             </div>
-            <img className='-z-10 absolute opacity-20' src='/img/FrameGreen.svg' alt='frame' />
+            <img className='-z-10 absolute opacity-20 scale-125 lg:scale-100' src='/img/FrameGreen.svg' alt='frame' />
           </div>
         </div>
-        <p className='hidden lg:block text-[18px] text-center font-semibold uppercase'>
+        <p className='hidden lg:block mt-10 text-[18px] text-center font-semibold uppercase'>
           The price of Resolut Flow Token will grow daily and in exactly one year it will reach 300%. 
           After that you 
-          <br/>will be able to exchange it for Resolut Flow Coin and start trading on the exchange, having fixed your profit.
-          <br/>Accordingly, the earlier you participate in the Private Sale, the more you will earn.
+          will be able to exchange it for Resolut Flow Coin and start trading on the exchange, having fixed your profit.
+          Accordingly, the earlier you participate in the Private Sale, the more you will earn.
         </p>
       </section>
 
-      <section className='max-w-screen-2xl sm:h-[180vh] px-4 sm:px-10 py-6 sm:pb-20 mx-auto'>
+      <section className='max-w-screen-2xl min-h-[100vh] px-8 sm:px-10 py-10 pb-[200px] mx-auto overflow-clip'>
         <p className='mb-16 text-[40px] font-bold uppercase'>Private Sale</p>
-        <div className='border border-slate-400 rounded-3xl  bg-black/20'>
-          <div className='max-w-[90%] px-6 py-16 mx-auto'>
-            <p className='mb-16 text-landing-title'>Private Sale</p>
+        <div className='border border-slate-400 rounded-3xl  bg-black/20 backdrop-blur-lg'>
+          <div className='lg:max-w-[90%] px-4 py-8 lg:px-6 lg:py-16 mx-auto'>
+            <p className='mb-8 lg:mb-16 text-landing-title text-center lg:text-left'>Private Sale</p>
             <BorderContainer>
               <div className='p-2 bg-slate-900 rounded-2xl'>
-                <div className='w-[200px] h-[80px] rounded-xl box-shadow bg-[#0D9BD2]'>
+                <div className='w-[200px] h-[50px] rounded-xl box-shadow bg-[#0D9BD2]'>
                     
                 </div>
               </div>
             </BorderContainer>
-            <div className='mt-14 flex justify-end'>
+            <div className='mt-8 lg:mt-14 flex justify-center lg:justify-end'>
               <Button className='px-10 py-3 box-shadow' variant='transparent' size='large'>
                 Buy Tokens
               </Button>
@@ -159,16 +154,17 @@ const Landing: FC = () => {
           </div>
         </div>
 
-        <div className='flex flex-col mt-20 p-16 bg-black/20 backdrop-blur-md border border-slate-400 rounded-3xl '>
-          <p className='text-[32px] font-bold uppercase'>RFT token price graph</p>
-          <div className='my-2 h-[1px] bg-slate-50/20'></div>
-          <p className='text-landing-content'>Income for the period amounted to XX$</p>
-          <div className='relative'>
-            <div className='box-center  max-w-[80%]  text-[10rem] font-extrabold'>
+        <div className='relative'>
+          <div className='flex flex-col mt-20 p-[24px] lg:p-16 bg-black/20 backdrop-blur-md border border-slate-400 rounded-3xl overflow-x-clip'>
+            <p className='text-landing-title'>RFT token price graph</p>
+            <div className='my-2 h-[1px] bg-slate-50/20'></div>
+            <p className='text-landing-content'>Income for the period amounted to XX$</p>
+            <div className='mx-auto text-[10rem] md:text-[14rem] xl:text-[20rem] font-extrabold'>
               
             </div>
-            <PriceTable />
           </div>
+          <img className='-z-10 absolute top-0 left-[50%] -translate-y-[25%] -translate-x-[50%] lg:scale-100 scale-125' src="/img/FrameBottom.svg" alt='frame-bottom' />
+
         </div>
       </section>
     </div>

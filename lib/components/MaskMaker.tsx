@@ -3,8 +3,8 @@ import {twMerge} from 'tailwind-merge';
 import type {FC} from 'react';
 
 type Props = {
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   position?: `${'bottom' | 'top' | 'middle'}-${'left' | 'right'}`;
   color?: string;
   className?: string;

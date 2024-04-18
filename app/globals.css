@@ -159,6 +159,11 @@ h3 {
   .box-shadow {
     box-shadow: 0 4px 15px 0 rgba(18, 150, 211, 0.75);
   }
+
+  .box-green-shadow {
+    box-shadow: 0 4px 15px 0 rgba(0, 255, 133, 1)
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -171,7 +176,7 @@ h3 {
     filter: blur(123px);
   }
   .blue__gradient {
-    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #00E0FF 100%);
+    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #0085FF 100%);
     filter: blur(123px);
   }
   .light__blue__gradient {
@@ -219,6 +224,11 @@ h3 {
     text-shadow: 0 0 5px #42FF00;
   }
 
+  .text-shadow-light-green {
+    color: rgba(0, 255, 133, 1);
+    text-shadow: 0 0 5px rgba(0, 255, 133, 1);
+  }
+
   .box-center {
     position: absolute;
     left: 50%;
@@ -232,7 +242,17 @@ h3 {
     }
 
     .text-landing-content {
-      font-size: 12px;
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text-landing-title {
+      font-size: 24px;
+    }
+
+    .text-landing-content {
+      font-size: 9px;
     }
   }
 }
