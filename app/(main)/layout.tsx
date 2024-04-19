@@ -10,10 +10,12 @@ import {useAppSelector} from '@/lib/store/hooks';
 import useSocketDebug from '@/lib/net/ws/useSocketDebug';
 import useSocketGlobalMessages from '@/lib/net/ws/useSocketGlobalMessages';
 import Header from '@/lib/components/layout/Header';
+import Footer from '@/lib/components/layout/Footer';
 import Profile from '@/lib/profile/Profile';
 import Wallet from '@/lib/wallet/wallet';
 import Button from '@/lib/components/button/Button';
 import SiweButton from '@/app/signin/SiweButton';
+import MaskMaker from '@/lib/components/MaskMaker';
 
 import type {FC, ReactNode} from 'react';
 
@@ -94,10 +96,19 @@ const MainLayout: FC<Props> = ({children}) => {
 
   return (
     <>
-      <div className="fixed w-[100%] min-h-screen top-0 left-0 -z-10 bg-dark-blue">
+      <div className="fixed w-[100%] min-h-screen top-0 left-0 -z-10 bg-gradient-to-r from-[#092033] to-[#071C2E]">
       </div>
-      <Header trailing={headerTrailing} />
-      {children}
+      <div className='relative overflow-clip lg:pb-20'>
+        <Header trailing={headerTrailing} />
+        {children}
+        <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 ' alt='mesh' />
+        <img src='/img/Ellipse.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0' alt='mesh' />
+        <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0 h-[40%]' alt='mesh' />
+        <MaskMaker width={1000} height={700} color='light__blue'position='top-left' className='-z-10 opacity-20' />
+        <MaskMaker width={500} height={500} color='light__blue'position='middle-right' className='-z-10 translate-x-[50%]' />
+        <MaskMaker width={500} height={500} color='dark__green' position='bottom-left' className='hidden lg:block -z-10 opacity-40' />
+        <Footer />
+      </div>
     </>
   );
 };

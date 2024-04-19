@@ -225,7 +225,7 @@ h3 {
   }
 
   .text-landing-content {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 300;
     text-transform: uppercase;
   }
@@ -233,8 +233,12 @@ h3 {
   .heading-h2 {
     font-size: 64px;
     font-weight: 700;
-    line-height: 78px;
     text-transform: uppercase;
+  }
+
+  .text-normal-content {
+    font-size: 20px;
+    font-weight: 300;
   }
 
   @media (max-width: 1024px) {
@@ -243,7 +247,7 @@ h3 {
     }
 
     .text-landing-content {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 
@@ -253,7 +257,11 @@ h3 {
     }
 
     .text-landing-content {
-      font-size: 9px;
+      font-size: 12px;
+    }
+
+    .text-normal-content {
+      font-size: 12px;
     }
 
     .heading-h2 {
