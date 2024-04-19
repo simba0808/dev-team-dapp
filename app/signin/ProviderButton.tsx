@@ -2,6 +2,7 @@
 import {signIn} from 'next-auth/react';
 import {useSearchParams} from 'next/navigation';
 import {useCallback} from 'react';
+import {twMerge} from 'tailwind-merge';
 
 import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import Button from '@/lib/components/button/Button';
@@ -20,10 +21,11 @@ const providersData: Record<Provider, { name: string; verb?: string; buttonVaria
 type Props = {
   provider: Pick<ClientSafeProvider, 'id' | 'name'>;
   size?: 'small' | 'medium' | 'large';
+  className?: string;
   onSignIn?: () => void;
 };
 
-const ProviderButton: FC<Props> = ({provider, size='medium', onSignIn}) => {
+const ProviderButton: FC<Props> = ({provider, size='medium', className, onSignIn}) => {
   const searchParams = useSearchParams();
   const {session, disconnect} = useAuthSession(provider.id as Provider);
 
@@ -52,6 +54,7 @@ const ProviderButton: FC<Props> = ({provider, size='medium', onSignIn}) => {
       size={size}
       variant={session ? 'gray' : buttonVariant}
       onClick={onClick}
+      className={twMerge('box-shadow', className)}
     >
       {session ? 'Disconnect' : verb} {name}
     </Button>

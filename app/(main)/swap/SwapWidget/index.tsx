@@ -13,19 +13,22 @@ const SwapWidget = () => {
 
   return (
     <div className='w-full overflow-hidden text-white text-center'>
-      <p className='text-3xl md:text-5xl'><span className='text-4xl md:text-6xl'>T</span>oken <span className='text-4xl md:text-6xl'>S</span>wap</p>
-      <p className='py-2'>Select tokens. Type amount. Press Swap. Confirm</p>
+      <h2 className='heading-h2 mb-4'>Token Swap</h2>
+      <p className='text-normal-content mb-10'>Select tokens. Type amount. Press Swap. Confirm</p>
       <BorderContainer className='mt-10'>
-        <div className='py-10 flex flex-col gap-4 text-lg md:text-2xl bg-dark-blue rounded-2xl'>
+        <div className='py-8 flex flex-col gap-4 bg-dark-blue rounded-2xl'>
           <div className='w-full px-4 sm:px-10'>
-            <h2 className='mb-4 text-4xl'>PROF Swap</h2>
+            <h2 className='text-[12px] lg:text-[32px] font-bold uppercase'>RFD Swap</h2>
             <div>
-              <div className='flex justify-between text-[20px]'>
+              <div className='flex justify-between text-landing-content font-bold'>
                 <span>You PAY</span>
                 <span>BALANCE: 0</span>
               </div>
-              <div className='flex items-center w-full shadow-lg px-3 sm:px-8 py-4 my-2 rounded-xl bg-[#05111C]'>
+              <div className='flex justify-between items-center w-full shadow-lg px-3 sm:px-8 py-4 my-2 rounded-xl bg-[#05111C]'>
                 <Selector />
+                <div className='w-[100px] h-full rounded-xl bg-[#05111C]'>
+                  <input type='text' className='w-full h-full inset-0 px-2 text-right bg-transparent outline-none' />
+                </div>
               </div>
             </div>
             <div className='my-4 flex justify-center'>
@@ -39,12 +42,15 @@ const SwapWidget = () => {
               </span>
             </div>
             <div className='mb-8'>
-              <div className='flex justify-between text-[20px]'>
+              <div className='flex justify-between text-landing-content font-bold'>
                 <span>You Receive</span>
                 <span>BALANCE: 0</span>
               </div>
-              <div className='flex items-center w-full shadow-lg px-3 sm:px-8 py-4 my-2 rounded-xl bg-[#05111C]'>
+              <div className='flex justify-between items-center w-full shadow-lg px-3 sm:px-8 py-4 my-2 rounded-xl bg-[#05111C]'>
                 <Selector />
+                <div className='w-[100px] h-full rounded-xl bg-[#05111C]'>
+                  <input type='text' className='w-full h-full inset-0 px-2 text-right bg-transparent outline-none' />
+                </div>
               </div>
             </div>
             <div className='mt-4'>
@@ -58,7 +64,7 @@ const SwapWidget = () => {
                     <Button className='box-shadow' variant='transparent' size='large'>
                       Connect Wallet
                     </Button> :
-                    <SiweButton />
+                    <SiweButton className='box-shadow text-[12px] lg:text-xl px-8 py-3 lg:py-5 lg:px-20 rounded-md lg:rounded-2xl' />
                 )
               }
             </div>

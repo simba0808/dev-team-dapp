@@ -28,27 +28,29 @@ const Selector = () => {
   return (
     <ul className='relative text-sm rounded-md shadow-md' ref={selectorRef}>
       <li 
-        className='box-shadow flex justify-between px-2 py-2 bg-light-blue rounded-md shadow-md hover:cursor-pointer'
+        className='p-[2px] bg-gradient-to-r from-sky-300 to-sky-900 rounded-md box-shadow shadow-md hover:cursor-pointer'
         onClick={() => setExpaned(!isExpaned)}
       >
-        <img
-          src={tokenList[selectedToken]?.tokenURI}
-          onError={({currentTarget}) => {
-            currentTarget.onerror = null; // prevents looping
-          }}
-          className='h-[25px] w-[25px]'
-          alt='token'
-        />
-        <div className='flex flex-row items-center'>
-          <span className='ml-3 text-lg font-bold text-white'>
-            {tokenList[selectedToken].tokenSymbol}
-          </span>
-          <ChevronDownIcon className='ml-2' fontSize='1.45rem' color='#fff' />
+        <div className='flex justify-between items-center px-1.5 lg:px-3.5 py-1.5 bg-light-blue rounded-md'>
+          <img
+            src={tokenList[selectedToken]?.tokenURI}
+            onError={({currentTarget}) => {
+              currentTarget.onerror = null; // prevents looping
+            }}
+            className='h-[20px] w-[20px] lg:h-[45px] lg:w-[45px]'
+            alt='token'
+          />
+          <div className='flex flex-row items-center'>
+            <span className='ml-1.5 lg:ml-3 text-[12px] lg:text-[24px] font-semibold text-white'>
+              {tokenList[selectedToken].tokenSymbol}
+            </span>
+            <ChevronDownIcon className='lg:ml-2' fontSize='1.45rem' color='#fff' />
+          </div>
         </div>
       </li>
       {
         isExpaned &&
-            <ul ref={expandRef} className='z-20 absolute top-12 rounded-xl min-w-[200px] px-4 py-2 bg-[#05111C] bg-opacity-70 shadow-md w-full divide-y-[1px]'>
+            <ul ref={expandRef} className='z-20 absolute top-12 lg:top-16 rounded-xl min-w-[150px] lg:min-w-[200px] px-4 py-2 bg-[#05111C] bg-opacity-70 shadow-md w-full divide-y-[1px]'>
               {tokenList.filter((item, index) => index != selectedToken).map((item: TokenField, index) => {
                 return (
                   <li
@@ -69,7 +71,7 @@ const Selector = () => {
                       alt='token'
                     />
                     <div className='flex flex-row items-center'>
-                      <span className='ml-3 text-lg font-bold text-white'>
+                      <span className='ml-4 text-[12px] lg:text-[24px] font-semibold text-white'>
                         {item.tokenSymbol}
                       </span>
                     </div>
