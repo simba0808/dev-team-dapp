@@ -150,20 +150,6 @@ h3 {
     text-shadow: 0 0 5px #00FFEB;
   }
 
-  @media screen {
-    
-  }
-}
-
-@layer utilities {
-  .box-shadow {
-    box-shadow: 0 4px 15px 0 rgba(18, 150, 211, 0.75);
-  }
-
-  .box-green-shadow {
-    box-shadow: 0 4px 15px 0 rgba(0, 255, 133, 1)
-  }
-
   .text-balance {
     text-wrap: balance;
   }
@@ -202,16 +188,12 @@ h3 {
     animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
-  .text-landing-title {
-    font-size: 26px;
-    font-weight: bold;
-    text-transform: uppercase;
+  .box-shadow {
+    box-shadow: 0 4px 15px 0 rgba(18, 150, 211, 0.75);
   }
 
-  .text-landing-content {
-    font-size: 18px;
-    font-weight: 300;
-    text-transform: uppercase;
+  .box-green-shadow {
+    box-shadow: 0 4px 15px 0 rgba(0, 255, 133, 1)
   }
 
   .text-shadow-blue {
@@ -236,6 +218,25 @@ h3 {
     transform: translateX(-50%) translateY(-50%);
   }
 
+  .text-landing-title {
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .text-landing-content {
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .heading-h2 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 78px;
+    text-transform: uppercase;
+  }
+
   @media (max-width: 1024px) {
     .text-landing-title {
       font-size: 20px;
@@ -246,7 +247,7 @@ h3 {
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .text-landing-title {
       font-size: 24px;
     }
@@ -254,5 +255,13 @@ h3 {
     .text-landing-content {
       font-size: 9px;
     }
+
+    .heading-h2 {
+      font-size: 24px;
+    }
   }
+}
+
+@layer utilities {
+  
 }
