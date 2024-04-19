@@ -4,8 +4,8 @@ import Button from '@/lib/components/button/Button';
 const USDTTransferWidget = () => {
   return (
     <div className='text-white text-center'>
-      <h2 className='heading-h2 mb-4'>Usdt transfers</h2>
-      <p className="text-normal-content mb-10">Type the amount. Select Transfer direction</p>
+      <h2 className='heading-h2 lg:mb-4'>Usdt transfers</h2>
+      <p className="text-normal-content mb-6 lg:mb-10">Type the amount. Select Transfer direction</p>
       <div className='flex flex-col gap-4'>
         <BorderContainer>
           <div className='py-8 bg-dark-blue rounded-2xl backdrop-blur-2xl'>

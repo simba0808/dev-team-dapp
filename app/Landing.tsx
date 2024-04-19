@@ -140,7 +140,7 @@ const Landing: FC = () => {
           <div className='lg:max-w-[90%] px-4 py-8 lg:px-6 lg:py-16 mx-auto'>
             <p className='mb-8 lg:mb-16 text-landing-title text-center lg:text-left'>Private Sale</p>
             <BorderContainer className='rounded-md lg:rounded-2xl'>
-              <div className='p-[2px] lg:p-2 bg-slate-900 rounded-md lg:rounded-2xl'>
+              <div className='p-[2px] lg:p-2 bg-[#05111C] rounded-md lg:rounded-2xl'>
                 <div className='w-[20%] h-[30px] lg:h-[50px] rounded-md lg:rounded-xl box-shadow bg-[#0D9BD2]'>
                     
                 </div>

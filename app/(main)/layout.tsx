@@ -1,6 +1,6 @@
 'use client';
 import {useSession} from 'next-auth/react';
-import {useRouter} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {useCallback, useEffect, useMemo, useRef} from 'react';
 import {useAccount} from 'wagmi';
 import {useWeb3Modal} from '@web3modal/react';
@@ -28,6 +28,7 @@ const MainLayout: FC<Props> = ({children}) => {
   useSocketGlobalMessages();
 
   const router = useRouter();
+  const pathname = usePathname();
 
   const auth = useAppSelector(state => state.auth);
   const user = useAppSelector(state => state.auth.user);
@@ -101,12 +102,17 @@ const MainLayout: FC<Props> = ({children}) => {
       <div className='relative overflow-clip lg:pb-20'>
         <Header trailing={headerTrailing} />
         {children}
-        <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 ' alt='mesh' />
-        <img src='/img/Ellipse.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0' alt='mesh' />
-        <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0 h-[40%]' alt='mesh' />
-        <MaskMaker width={1000} height={700} color='light__blue'position='top-left' className='-z-10 opacity-20' />
-        <MaskMaker width={500} height={500} color='light__blue'position='middle-right' className='-z-10 translate-x-[50%]' />
-        <MaskMaker width={500} height={500} color='dark__green' position='bottom-left' className='hidden lg:block -z-10 opacity-40' />
+        {
+          pathname !== '/home' &&  
+            <>
+              <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 ' alt='mesh' />
+              <img src='/img/Ellipse.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0' alt='mesh' />
+              <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0 h-[40%]' alt='mesh' />
+              <MaskMaker width={1000} height={700} color='light__blue'position='top-left' className='-z-10 opacity-20' />
+              <MaskMaker width={500} height={500} color='light__blue'position='middle-right' className='-z-10 translate-x-[50%]' />
+              <MaskMaker width={500} height={500} color='dark__green' position='bottom-left' className='hidden lg:block -z-10 opacity-40' />
+            </>
+        }
         <Footer />
       </div>
     </>
