@@ -59,40 +59,42 @@ const Landing: FC = () => {
         <img className='block lg:hidden w-[25%] absolute top-[90%] right-0 -translate-y-[100%]' src='/img/PatternRight.svg' alt='pattern' />
       </section>
       
-      <section className='relative max-w-screen-2xl px-8 sm:px-10 lg:pt-44 py-6 sm:py-20 mx-auto bg-dark-blue'>
-        <div className='w-full flex gap-4 sm:gap-10 justify-between'>
-          <BalanceCard type='Current token balance' amount={0} color='blue' position='middle-left' size='large' />
-          <BalanceCard token={false} type='Current usdt balance' amount={0} color='blue' position='bottom-right' size='large' />
-        </div>
-        <div className='w-full flex gap-2 sm:gap-10 mt-10 sm:mt-20 justify-between'>
-          <BalanceCard type='RFT received' amount={0} color='green' position='bottom-left' />
-          <BalanceCard type='RFT claimed' amount={0} color='green' />
-          <BalanceCard type='RFT pending' amount={0} color='green' position='top-right' />
-        </div>
-        <div className='flex justify-center mt-10'>
-          <Button size='large' variant='transparent' className='box-shadow py-2 lg:py-4 px-12 lg:px-20' >
-            Buy NFT
-          </Button>
-        </div>
-        <img className='block lg:hidden w-[25%] absolute top-[50%] left-0 translate-y-[50%]' src='/img/PatternBottomLeft.svg' alt='pattern' />
-      </section>
-  
-      <section className='relative py-6 sm:py-20 mx-auto mb-12'>
-        <div className='max-w-screen-2xl w-full flex flex-col items-center gap-4 px-8 sm:px-10 mx-auto text-white'>
-          <h2 className='heading-h2'>Referral stats</h2>
-          <input type='text' className='max-w-[80%] w-full mx-auto py-2  bg-[#05111C] text-center rounded-md' defaultValue='Referral Link' />
-          <p className='text-center mb-4'>Partners in your referral Structure</p>
-          <ReferralBoard />
-          <ProfCard />
+      <section className='bg-dark-blue'>
+        <div className='relative max-w-screen-2xl px-8 sm:px-10 lg:pt-44 py-6 sm:py-20 mx-auto'>
+          <div className='w-full flex gap-4 sm:gap-10 justify-between'>
+            <BalanceCard type='Current RFT balance' amount={0} color='blue' position='middle-left' size='large' />
+            <BalanceCard token={false} type='Current usdt balance' amount={0} color='blue' position='bottom-right' size='large' />
+          </div>
+          <div className='w-full flex gap-2 sm:gap-10 mt-10 sm:mt-20 justify-between'>
+            <BalanceCard type='RFT received' amount={0} color='green' position='bottom-left' />
+            <BalanceCard type='RFT claimed' amount={0} color='green' />
+            <BalanceCard type='RFT pending' amount={0} color='green' position='top-right' />
+          </div>
           <div className='flex justify-center mt-10'>
             <Button size='large' variant='transparent' className='box-shadow py-2 lg:py-4 px-12 lg:px-20' >
-              Referral
+              Buy RFT
             </Button>
           </div>
+          <img className='block lg:hidden w-[25%] absolute top-[50%] left-0 translate-y-[50%]' src='/img/PatternBottomLeft.svg' alt='pattern' />
         </div>
-        <img className='block w-[25%] absolute top-0 right-0 -translate-y-[50%]' src='/img/PatternRight.svg' alt='pattern' />
-        <img className='block lg:hidden w-[25%] absolute top-[50%] left-[-10%]' src='/img/PatternMiddleLeft.svg' alt='pattern' />
-        <img className='block lg:hidden w-[25%] absolute bottom-0 right-0' src='/img/PatternBottomRight.svg' alt='pattern' />
+    
+        <div className='relative py-6 sm:py-20 mx-auto mb-12'>
+          <div className='max-w-screen-2xl w-full flex flex-col items-center gap-4 px-8 sm:px-10 mx-auto text-white'>
+            <h2 className='heading-h2'>Referral stats</h2>
+            <input type='text' className='max-w-[80%] w-full mx-auto py-2  bg-[#05111C] text-center rounded-md' defaultValue='Referral Link' />
+            <p className='text-center mb-4'>Partners in your referral Structure</p>
+            <ReferralBoard />
+            <ProfCard />
+            <div className='flex justify-center mt-10'>
+              <Button size='large' variant='transparent' className='box-shadow py-2 lg:py-4 px-12 lg:px-20' >
+                Referral
+              </Button>
+            </div>
+          </div>
+          <img className='block w-[25%] absolute top-0 right-0 -translate-y-[50%]' src='/img/PatternRight.svg' alt='pattern' />
+          <img className='block lg:hidden w-[25%] absolute top-[50%] left-[-10%]' src='/img/PatternMiddleLeft.svg' alt='pattern' />
+          <img className='block lg:hidden w-[25%] absolute bottom-0 right-0' src='/img/PatternBottomRight.svg' alt='pattern' />
+        </div>
       </section>
     </div>
   );

@@ -35,7 +35,7 @@ export const Header: FC<Props> = ({
     return (
       <>
         <img
-          className='w-[150px] h-[55px] sm:w-[200px] sm:h-[70px] cursor-pointer'
+          className='w-[150px] h-[55px] sm:w-[280px] sm:h-[70px] cursor-pointer'
           src='/img/Logo.svg'
           alt='logo'
           onClick={onLogo}

@@ -13,9 +13,9 @@ const SwapWidget = () => {
 
   return (
     <div className='w-full overflow-hidden text-white text-center'>
-      <h2 className='heading-h2 mb-4'>Token Swap</h2>
-      <p className='text-normal-content mb-10'>Select tokens. Type amount. Press Swap. Confirm</p>
-      <BorderContainer className='mt-10'>
+      <h2 className='heading-h2 lg:mb-4'>Token Swap</h2>
+      <p className='text-normal-content mb-6 lg:mb-10'>Select tokens. Type amount. Press Swap. Confirm</p>
+      <BorderContainer>
         <div className='py-8 flex flex-col gap-4 bg-dark-blue rounded-2xl'>
           <div className='w-full px-4 sm:px-10'>
             <h2 className='text-[12px] lg:text-[32px] font-bold uppercase'>RFD Swap</h2>
