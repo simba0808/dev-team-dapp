@@ -17,7 +17,7 @@ const tokenList: TokenField[] = [
     tokenAddress: (process.env.NEXT_PUBLIC_DIMP_CONTRACT_ADDRESS ||
       zeroAddress) as `0x${string}`,
     tokenName: 'Direct Impact Monetary Piece',
-    tokenSymbol: 'DIMP',
+    tokenSymbol: 'RFT',
     decimals: 6,
     watch: true,
   },
