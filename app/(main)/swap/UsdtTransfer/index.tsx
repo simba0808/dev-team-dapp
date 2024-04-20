@@ -1,7 +1,12 @@
+'use client';
+import {useState} from 'react';
+
 import BorderContainer from '@/lib/components/BorderContainer';
 import Button from '@/lib/components/button/Button';
 
 const USDTTransferWidget = () => {
+  const [transferDirection, setTransferDirection] = useState(true);
+
   return (
     <div className='text-white text-center'>
       <h2 className='heading-h2 lg:mb-4'>Usdt transfers</h2>
@@ -13,7 +18,7 @@ const USDTTransferWidget = () => {
             <p className='text-[18px] lg:text-[64px] font-bold'>$0,000</p>
           </div>
         </BorderContainer>
-        <div className='h-10 lg:h-20 flex justify-between'>
+        <div className='relative h-10 lg:h-20 flex justify-between'>
           <div className='basis-1/3 h-full rounded-xl bg-[#05111C]'>
             <input 
               type='text' 
@@ -21,14 +26,19 @@ const USDTTransferWidget = () => {
               defaultValue={0}
             />
           </div>
-          <div className='h-full aspect-square p-1 rounded-xl bg-gradient-to-r to-[#02A42F] from-[#59FF87] box-green-shadow'>
+          <div 
+            className='absolute left-[50%] -translate-x-[50%] h-full aspect-square p-1 rounded-xl bg-gradient-to-r to-[#02A42F] from-[#59FF87] box-green-shadow'
+            onClick={() => setTransferDirection(!transferDirection)}
+          >
             <div className='size-full p-[1px] rounded-xl bg-gradient-to-r from-white to-[#06FC47]'>
-              <div className='size-full p-1 lg:p-4 border-white bg-[#05FF48] rounded-xl'>
-                <img src='/img/triangle.svg' className='size-full' alt='tri'/>
+              <div className='size-full p-1.5 lg:p-4 border-white bg-[#05FF48] rounded-xl'>
+                <img src='/img/triangle.svg' className={`${transferDirection?'rotate-0':'rotate-180'} size-full`} alt='tri'/>
               </div>
             </div>
           </div>
-          <Button size='large' variant='transparent' className='h-full box-shadow text-[12px] lg:text-xl px-8 py-3 lg:py-4 lg:px-20 box-shadow rounded-md lg:rounded-2xl'>Transfer USDT</Button>
+          <Button size='large' variant='transparent' className='h-full box-shadow text-[12px] lg:text-xl px-8 py-3 lg:py-4 lg:px-20 box-shadow rounded-md lg:rounded-2xl'>
+            {transferDirection?'Deposit USDT':'Withdraw USDT'}
+          </Button>
         </div>
         <BorderContainer>
           <div className='py-8 bg-dark-blue rounded-2xl backdrop-blur-2xl'>
