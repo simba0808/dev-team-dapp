@@ -1,0 +1,100 @@
+[
+  {
+    "line": 1,
+    "commission": 8,
+    "requirement": "",
+    "rv_count": 100,
+    "turnover": 0
+  },
+  {
+    "line": 2,
+    "commission": 4,
+    "requirement": "",
+    "rv_count": 70,
+    "turnover": 0
+  },
+  {
+    "line": 3,
+    "commission": 3,
+    "requirement": "Junior",
+    "rv_count": 60,
+    "turnover": 2500
+  },
+  {
+    "line": 4,
+    "commission": 2,
+    "requirement": "Senior",
+    "rv_count": 50,
+    "turnover": 10000
+  },
+  {
+    "line": 5,
+    "commission": 1,
+    "requirement": "Distributer",
+    "rv_count": 40,
+    "turnover": 25000
+  },
+  {
+    "line": 6,
+    "commission": 1,
+    "requirement": "Supervisor",
+    "rv_count": 35,
+    "turnover": 50000
+  },
+  {
+    "line": 7,
+    "commission": 1,
+    "requirement": "Master",
+    "rv_count": 30,
+    "turnover": 100000
+  },
+  {
+    "line": 8,
+    "commission": 1,
+    "requirement": "Pro",
+    "rv_count": 25,
+    "turnover": 250000
+  },
+  {
+    "line": 9,
+    "commission": 0.5,
+    "requirement": "Manager",
+    "rv_count": 20,
+    "turnover": 500000
+  },
+  {
+    "line": 10,
+    "commission": 0.5,
+    "requirement": "Director",
+    "rv_count": 15,
+    "turnover": 1000000
+  },
+  {
+    "line": 11,
+    "commission": 0.5,
+    "requirement": "Executive",
+    "rv_count": 10,
+    "turnover": 2500000
+  },
+  {
+    "line": 12,
+    "commission": 0.5,
+    "requirement": "President",
+    "rv_count": 5,
+    "turnover": 5000000
+  },
+  {
+    "line": 13,
+    "commission": 0.5,
+    "requirement": "Chairman",
+    "rv_count": 2.5,
+    "turnover": 10000000
+  },
+  {
+    "line": 14,
+    "commission": 0.5,
+    "requirement": "Ambassador",
+    "rv_count": 1,
+    "turnover": 25000000
+  }
+]
