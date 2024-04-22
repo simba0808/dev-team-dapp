@@ -47,13 +47,13 @@ const Landing: FC = () => {
             <div className=''>
               <img className='max-w-[80%] hidden lg:block' src='/img/Logo.svg' alt='' />
               <div className='mb-12 lg:mb-6 lg:text-left text-center'>
-                <p className='lg:mt-6 text-[20px] lg:text-[26px] font-bold leading-[150%] lg:leading-[110%] uppercase'>Participate in building AI-powered products with Resolute</p>
+                <p className='lg:mt-6 text-landing-title leading-[150%] lg:leading-[110%]'>Participate in building AI-powered products with Resolute</p>
                 <p className='mt-3 text-[12px] lg:text-[18px] font-light uppercase'>
                   <b>Resolut AI</b> aims to create innovative artificial intelligence-based solutions that improve the efficiency and security of blockchain and cryptocurrency transactions.
                 </p>
               </div>
               <div className='lg:text-left text-center'>
-                <p className='text-[20px] lg:text-[26px] font-bold uppercase'>Our mission</p>
+                <p className='text-landing-title'>Our mission</p>
                 <p className='mt-3 text-[12px] lg:text-[18px] font-light uppercase'>
                   We develop a wide range of products and services based on artificial intelligence.
                   Our mission is to make the world of cryptocurrencies more accessible and secure for all participants by providing them with advanced technologies and tools based on artificial intelligence.
@@ -80,7 +80,7 @@ const Landing: FC = () => {
         <div className='w-full flex items-center gap-4'>
           <div className='flex-1 flex justify-center items-center gap-8 py-10'>
             <div>
-              <p className='text-[20px] lg:text-[26px] text-center xs:text-left font-bold uppercase'>
+              <p className='text-landing-title text-center xs:text-left'>
                 Application of artificial<br/>Resolut AI
               </p>
               <ul className='ml-4 mt-12 space-y-2 text-landing-content list-disc uppercase'>
@@ -106,7 +106,7 @@ const Landing: FC = () => {
             <span className='lg:py-2 text-landing-content'>Resolut Flow Token</span>
             <span className='pb-4 text-[40px] font-bold text-shadow-blue'>(RFT)</span>
             <div className='lg:text-left text-center'>
-              <p className='lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 text-landing-content rounded-2xl'>
+              <p className='text-normal-content lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 rounded-2xl'>
                 RFT (Resolut Flow Token) is an internal token designed to enable transactions within the Resolut AI ecosystem. 
                 RFT simplifies and optimizes internal transactions and exchanges within the platform.
               </p>
@@ -118,7 +118,7 @@ const Landing: FC = () => {
             <span className='lg:py-2 text-landing-content'>Resolut Flow Coin (PFC)</span>
             <span className='pb-4 text-[40px] font-bold text-shadow-green'>(RFC)</span>
             <div className='lg:text-left text-center'>
-              <p className='lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 text-landing-content rounded-2xl'>
+              <p className='text-normal-content lg:min-h-[250px] p-5 sm:p-10 bg-black/20 backdrop-blur-lg border border-slate-600 rounded-2xl'>
                 RFC (Resolut Flow Coin) is a public coin available for trading on various decentralized and centralized cryptocurrency exchanges (DEX/CEX). 
                 RFC serves as an instrument for external transactions and can be used as an investment asset.
               </p>
@@ -135,10 +135,10 @@ const Landing: FC = () => {
       </section>
 
       <section className='max-w-screen-2xl min-h-[100vh] px-8 sm:px-10 py-10 pb-[200px] mx-auto overflow-clip'>
-        <p className='mb-16 text-[40px] font-bold uppercase'>Private Sale</p>
+        <p className='mb-16 text-landing-title text-center lg:text-[64px] lg:text-left'>Private Sale</p>
         <div className='border border-slate-400 rounded-3xl  bg-black/20 backdrop-blur-lg'>
           <div className='lg:max-w-[90%] px-4 py-8 lg:px-6 lg:py-16 mx-auto'>
-            <p className='mb-8 lg:mb-16 text-landing-title text-center lg:text-left'>Private Sale</p>
+            <p className='mb-8 lg:mb-16 text-landing-content text-center lg:text-left'>Private Sale</p>
             <BorderContainer className='rounded-md lg:rounded-2xl'>
               <div className='p-[2px] lg:p-2 bg-[#05111C] rounded-md lg:rounded-2xl'>
                 <div className='w-[20%] h-[30px] lg:h-[50px] rounded-md lg:rounded-xl box-shadow bg-[#0D9BD2]'>
@@ -156,7 +156,7 @@ const Landing: FC = () => {
 
         <div className='relative'>
           <div className='flex flex-col mt-20 p-[24px] lg:p-16 bg-black/20 backdrop-blur-md border border-slate-400 rounded-3xl overflow-x-clip'>
-            <p className='text-landing-title'>RFT token price graph</p>
+            <p className='text-landing-title lg:text-[40px]'>RFT token price graph</p>
             <div className='my-2 h-[1px] bg-slate-50/20'></div>
             <p className='text-landing-content'>Income for the period amounted to XX$</p>
             <div className='mx-auto text-[10rem] md:text-[14rem] xl:text-[20rem] font-extrabold'>
