@@ -18,8 +18,8 @@ const ReferalCard: React.FC<ReferalProps> = ({level, count}) => {
     <div className='flex flex-col items-center justify-center gap-4 text-white'>
       {CardImage}
       <div className='flex flex-col'>
-        <span className='text-xl font-thin'>{`level ${level}`}</span>
-        <span className='text-center text-5xl font-bold'>{`${count}`}</span>
+        <span className='text-normal-content'>{`level ${level}`}</span>
+        <span className='heading-h2 text-center'>{`${count}`}</span>
       </div>
     </div>
   );

@@ -107,7 +107,7 @@ const MainLayout: FC<Props> = ({children}) => {
             <>
               <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 ' alt='mesh' />
               <img src='/img/Ellipse.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0' alt='mesh' />
-              <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0 h-[40%]' alt='mesh' />
+              <img src='/img/mesh.svg' className='-z-10 hidden lg:block absolute bottom-0 right-0' alt='mesh' />
               <MaskMaker width={1000} height={700} color='light__blue'position='top-left' className='-z-10 opacity-20' />
               <MaskMaker width={500} height={500} color='light__blue'position='middle-right' className='-z-10 translate-x-[50%]' />
               <MaskMaker width={500} height={500} color='dark__green' position='bottom-left' className='hidden lg:block -z-10 opacity-40' />
