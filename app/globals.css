@@ -8,6 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 
   --color-dark-blue: #071C2E;
+  --color-thick-dark-blue: #05111C;
   --color-light-blue: #00AEEF;
   --color-light-cyan: #00E0FF;
   --color-cyan: #00FFEB;
@@ -36,6 +37,31 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.custom-scrollbar {
+  overflow: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  height: 4px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: white;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 2px #0095FF ;
+    background-color: #0095FF   ;
+    outline: 4px solid #0095FF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -196,6 +222,12 @@ h3 {
     box-shadow: 0 4px 15px 0 rgba(0, 255, 133, 1)
   }
 
+  .box-border {
+    background: linear-gradient(-45deg, #6F6F6F11, rgb(207, 207, 207), #6F6F6F11, rgb(207, 207, 207), #6F6F6F11);
+    box-shadow: 0 15px 25px rgba(15, 15, 15, 0.2);
+    border-radius: 16px;
+  }
+
   .text-shadow-blue {
     color: #00F0FF;
     text-shadow: 0 0 5px #00F0FF;
@@ -219,7 +251,7 @@ h3 {
   }
 
   .text-landing-title {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -266,6 +298,10 @@ h3 {
 
     .heading-h2 {
       font-size: 24px;
+    }
+
+    .green__gradient {
+      filter: blur(53px);
     }
   }
 }

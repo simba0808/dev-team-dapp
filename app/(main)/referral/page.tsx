@@ -8,11 +8,13 @@ import {CheckIcon, CopyIcon} from '@chakra-ui/icons';
 import {useAppSelector} from '@/lib/store/hooks';
 import ReferralBoard from '@/lib/components/cards/ReferalCard';
 import ProfCard from '@/lib/components/cards/ProfCard';
-import MaskMaker from '@/lib/components/MaskMaker';
-import BorderContainer from '@/lib/components/BorderContainer';
-import DataTable from '@/lib/components/data-table/DataTable';
+import BonusCard from '@/lib/components/cards/BonusCard';
+import CommossionTable from '@/lib/components/tables/CommisstionTable';
+import RankTable from '@/lib/components/tables/RankTable';
+import BonusPoolTable from '@/lib/components/tables/BonusPoolTable';
 import {dateFormatter} from '@/lib/components/data-table/dateFormatter';
 import useRefs from '@/lib/net/modules/ref/useRefs';
+import '@/lib/components/tables/table.scss';
 
 import type {FC} from 'react';
 import type {RefData} from '@/lib/net/modules/ref/useRefs';
@@ -67,17 +69,17 @@ const CopyLink: FC<CopyLinkProps> = ({url}) => {
   }, [url]);
 
   return (
-    <div className='surface-compact p-3 rounded-xl cursor-pointer bg-light-gray active:bg-gray' onClick={onClickHandler}>
-      <div className='flex flex-row items-center gap-2'>
+    <div className='xs:max-w-[80%] w-full p-3 mx-auto rounded-lg bg-thick-dark-blue cursor-pointer' onClick={onClickHandler}>
+      <div className='flex flex-row justify-center items-center gap-2'>
+        <div className='text-landing-content lowercase text-wrap'>
+          {url}
+        </div>
         {
           copied ?
             <CheckIcon color='#8E9FAE' boxSize={20} />
             :
             <CopyIcon color='#8E9FAE' boxSize={20} />
         }
-        <div className='text-medium-gray text-sm xs:text-md xs:font-bold text-wrap'>
-          {url}
-        </div>
       </div>
     </div>
   );
@@ -96,76 +98,107 @@ const Referral = () => {
     return data.results;
   }, [data]);
 
-  return (
-    <div className='w-full mt-8'>
-      <h1 className='mb-8 text-4xl lg:text-5xl font-normal text-center'>Referral Lounge</h1>
-      <div className='w-full flex md:flex-row flex-col justify-center gap-4 sm:gap-10 mb-16'>
-        <div className='w-md max-w-[90vw] mb-4 mx-auto'>
-          <BorderContainer className='surface'>
-            <div className='rounded-2xl bg-dark-blue'>
-              <div className='min-h-[250px] surface gap-4 relative p-8 bg-black/20 text-white overflow-hidden'>
-                <h3 className='mb-3 text-xl max-sm:text-base'>Program Rules & Terms of Use</h3>
-                <div className='grow flex flex-row justify-between items-center gap-3'>
-                  <div className='flex-1 text-md max-md:text-xs'>
-                    Earn up to 15% Rewards when your referrals Earn tokens or Spend their budgets
-                  </div>
-                  <div className='flex-1 flex flex-row justify-center gap-4'>
-                    <div>
-                      <div className='text-sm whitespace-nowrap'>Level 1</div>
-                      <div className='text-3xl font-bold text-cream drop-shadow-lg'>7%</div>
-                    </div>
-                    <div>
-                      <div className='text-sm whitespace-nowrap'>Level 2</div>
-                      <div className='text-3xl font-bold text-cream drop-shadow-lg'>5%</div>
-                    </div>
-                    <div>
-                      <div className='text-sm whitespace-nowrap'>Level 3</div>
-                      <div className='text-3xl font-bold text-cream drop-shadow-lg'>3%</div>
-                    </div>
-                  </div>
-                </div>
-                <MaskMaker position='middle-right' color='blue' width={200} height={200} />
-                <MaskMaker position='middle-left' color='blue' width={200} height={200} />
-              </div>
-            </div>
-          </BorderContainer>
+  const BonusRound = ({round, text}) => {
+    return (
+      <div className='flex'>
+        <div className='text-[64px] lg:text-[128px] font-bold leading-[110%]'>{round}</div>
+        <div className='text-normal-content ml-3 flex items-center text-[10px] md:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium'>
+          {text}
         </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className='relative pb-20 text-white'>
+      <div className='max-w-screen-2xl mx-auto pt-40 px-8 sm:px-10 mb-12 '>
+        <h2 className='heading-h2 text-center mb-1'>Referral Stats</h2>
         {
           user &&
-          <div className='w-md max-w-[90vw] mb-4 mx-auto text-white'>
-            <BorderContainer className='surface'>
-              <div className='relative rounded-2xl bg-dark-blue overflow-hidden'>
-                <div className='min-h-[250px] max-w-[60%] md:max-w-full mx-auto  flex flex-col justify-center items-center gap-4'>
-                  <CopyLink url={urlJoin(process.env.NEXT_PUBLIC_INVITE_URL!, user.ref_slug)} />
-                  <div className='text-center text-white m-3 text-sm max-md:text-xs'>
-                    Click on any link to Copy your referral URL. Share it to Invite Partners. Earn up to <b>15%</b> Commission from their activity
-                  </div>
-                  <CopyLink url={urlJoin(process.env.NEXT_PUBLIC_INVITE_URL!, String(user.id))} />
-                </div>
-                <MaskMaker position='middle-right' color='green' width={200} height={200} />
-              </div>
-            </BorderContainer>
-          </div>
+            <CopyLink url={urlJoin(process.env.NEXT_PUBLIC_INVITE_URL!, user.ref_slug)} />
         }
-      </div>
-      <div className='flex flex-col mb-16 items-center text-white'>
-        <h1 className='mb-1 text-4xl lg:text-5xl font-normal'>Referral Statistics</h1>
+        <p className='text-landing-content mt-2 text-center'>Partners in your referral Structure</p>
         <ReferralBoard />
+        <p className='text-landing-content my-3 text-center'>Your Ambassador performance</p>
         <ProfCard />
       </div>
-      <div className='flex flex-col mb-4 items-center text-white'>
-        <h1 className='mb-8 text-4xl lg:text-5xl font-normal'>Detailed Referral Statistics</h1>
-        <div className='w-full'>
-          <DataTable
-            columns={COLUMNS}
-            rows={rows}
-            rowsTotal={total}
-            initialSortColumns={INITIAL_SORT_COLUMNS}
-            currentPage={page}
-            isFetching={isFetching}
-            sortCompare={sortCompare}
-            onPageChange={setPage}
-          />
+      
+      <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+        <h2 className='heading-h2 text-center mb-1'>Referral</h2>
+        <p className='text-normal-content text-center uppercase mb-10'>
+          You get a percentage of the amount spent by the referral on the validator.
+          The higher your rank, the more levels you open to earn commissions.
+          The rank volume (RV) shows how much of your sales are taken into account when you increase your rank.
+          The affiliate commission you earn is accumulated on your affiliate balance and transferred to your active wallet balance every three days.
+        </p>
+        <div className='custom-scrollbar overflow-x-scroll pb-14 bg-transparent'>
+          <CommossionTable />
+        </div>
+      </div>
+
+      <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+        <h2 className='heading-h2 text-center mb-1'>Ranks</h2>
+        <p className='text-normal-content text-center uppercase mb-10'>
+          To unlock a rank you need to rack up a certain amount of sales, 
+          once you rack up the required rank volume (RV) and the required validator, 
+          you will receive a bonus that will be added directly to your active wallet balance.
+        </p>
+        <div className='custom-scrollbar overflow-x-scroll pb-14 bg-transparent'>
+          <RankTable />
+        </div>
+      </div>
+      
+      <div className='w-full'>
+        <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+          <h2 className='heading-h2 text-center mb-1'>Global Bonus Pool</h2>
+          <p className='text-normal-content text-center uppercase mb-4 lg:mb-10'>
+            A dynamic bonus that renews each calendar month on the first of the month.
+          </p>
+          <p className='text-landing-content text-center font-bold'>
+            Conditions under which Bonus Pool will count: 
+          </p>
+        </div>
+        <div className='w-full bg-gradient-to-r from-blue-500/30  to-transparent shadow-2xl mb-12'>
+          <div className='max-w-screen-2xl mx-auto px-8 sm:px-12 grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-20 text-[#00B2FF]'>
+            <BonusRound round={1} text='A certain number of new registrations in the whole structure' />
+            <BonusRound round={2} text='Number of new registrations in the first line' />
+            <BonusRound round={3} text='Total turnover of the structure' />
+            <BonusRound round={4} text='Rank Status' />
+          </div>
+        </div>
+        <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+          <div className='custom-scrollbar overflow-x-scroll pb-14 bg-transparent'>
+            <BonusPoolTable />
+          </div>
+        </div>
+      </div>
+
+      <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+        <h2 className='heading-h2 text-center mb-1'>Matching bonus</h2>
+        <p className='lg:max-w-[60%] mx-auto text-normal-content text-center uppercase mb-10'>
+          Starting from the Master rank, the leader starts earning a percentage of the bonus income of his partner, 
+          who is in the first line. 
+        </p>
+        <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4 lg:gap-x-20 lg:gap-y-10 mb-8'>
+          <BonusCard level={1} degree='Master' bonus={10} />
+          <BonusCard level={2} degree='Pro' bonus={10} />
+          <BonusCard level={3} degree='Manager' bonus={10} />
+          <BonusCard level={4} degree='Director' bonus={10} />
+          <BonusCard level={5} degree='Executive' bonus={10} />
+          <BonusCard level={6} degree='Ambassador' bonus={10} />
+        </div>
+        <p className='text-normal-content text-center uppercase mb-10'>Bonus is accrued from bonus rewards only!</p>
+      </div>
+
+      <div className='max-w-screen-2xl mx-auto px-8 sm:px-10 mb-12'>
+        <h2 className='heading-h2 text-center mb-1'>Revenue Bonus</h2>
+        <p className='lg:max-w-[80%] mx-auto text-normal-content text-center uppercase mb-8'>
+          It is possible to buy packages from $1000, the income from which can be multiplied 6 times. 
+          When you reach the limit you need to buy a new package. 
+          Build your team and get a fixed percentage equal to the direct bonus from the first line.
+        </p>
+        <div className='lg:max-w-[70%] mx-auto flex justify-center'>
+          <img src='/img/Revenue.svg' className='w-full' alt='revenue' />
         </div>
       </div>
     </div>

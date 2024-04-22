@@ -1,0 +1,97 @@
+
+.border-box {
+  border-image: linear-gradient(-45deg, #f00, #f0f, #f00, #00f, #0f0);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(15, 15, 15, 0.2);
+  border-radius: 16px;
+}
+
+.border-box::before {
+  border-radius: 16px;
+}
+
+.table-gradient-row-border {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  border-bottom: 1px solid transparent;
+  /* Set a transparent bottom border */
+  border-image-source: linear-gradient(to right, #ffffff00, #ffffff50 50%,#ffffff00);
+  /* Gradient color for the border */
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+
+  &:last-child {
+    border: none;
+  }
+}
+.table-gradient-row-border > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-gradient-column-border {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));;
+  border-top:0;
+  border-left:0;
+  border-bottom:0;
+  border-right: 1px solid transparent;
+  /* Set a transparent bottom border */
+  border-image-source: linear-gradient(to bottom, #ffffff00, #ffffff50 50%,#ffffff00);
+  /* Gradient color for the border */
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.rank-table-gradient-row-border {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  border-bottom: 1px solid transparent;
+  /* Set a transparent bottom border */
+  border-image-source: linear-gradient(to right, #ffffff00, #ffffff10,#ffffff00);
+  /* Gradient color for the border */
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.rank-table-gradient-column-border {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));;
+  border-top:0;
+  border-left:0;
+  border-bottom:0;
+  border-right: 1px solid transparent;
+  /* Set a transparent bottom border */
+  border-image-source: linear-gradient(to bottom, #ffffff00, #ffffff50 50%,#ffffff00);
+  /* Gradient color for the border */
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+
+  &:last-child {
+    border: none;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rank-table-gradient-column-border {
+    &:last-child {
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
