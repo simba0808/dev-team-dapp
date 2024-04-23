@@ -5,7 +5,7 @@ import SwapWidget from './SwapWidget';
 const Swap = () => {
   return (
     <div className='relative pb-20'>
-      <div className='max-w-screen-2xl mx-auto pt-32 px-8 sm:px-10 mb-12'>
+      <div className='max-w-screen-2xl mx-auto pt-40 px-8 sm:px-10 mb-12'>
         <USDTTransferWidget />
         <div className='w-full h-20'></div>
         <SwapWidget />
