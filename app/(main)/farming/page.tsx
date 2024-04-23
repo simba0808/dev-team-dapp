@@ -1,7 +1,66 @@
+import BorderContainer from '@/lib/components/BorderContainer';
+
+import FarmingCard from './component/card/FarmingCard';
+
 const Farming = () => {
   return (
-    <div className='w-full'>
-      <p className='text-center text-3xl text-white'>Farming</p>
+    <div className='relative pb-20'>
+      <div className='max-w-screen-2xl mx-auto pt-48 px-8 sm:px-10 mb-12'>
+        <BorderContainer className='hidden md:block'>
+          <div className='flex justify-between px-6 xs:px-10 lg:px-36 py-8 text-center text-[12px] lg:text-[16px] text-[#00FFEB] font-light'>
+            <div className='flex flex-col'>
+              <span className='text-[36px] font-semibold'>0</span>
+              <span>RFT ON BALANCE</span>
+            </div>
+            <div className='flex flex-col'>
+              <span className='text-[36px] font-semibold'>0</span>
+              <span>RFT Deligated</span>
+            </div>
+            <div className='flex flex-col'>
+              <span className='text-[36px] font-semibold'>0</span>
+              <span>RFT to Harvest</span>
+            </div>
+            <div className='flex flex-col'>
+              <span className='text-[36px] font-semibold'>0</span>
+              <span>RFT Total</span>
+            </div>
+          </div>
+        </BorderContainer>
+        <div className='md:hidden text-center text-[12px] text-[#00FFEB] font-light'>
+          <BorderContainer>
+            <div className='flex justify-between px-6 py-8'>
+              <div className='flex flex-col'>
+                <span className='text-[24px] font-semibold'>0</span>
+                <span>RFT ON BALANCE</span>
+              </div>
+              <div className='flex flex-col'>
+                <span className='text-[24px] font-semibold'>0</span>
+                <span>RFT Deligated</span>
+              </div>
+            </div>
+          </BorderContainer>
+          <BorderContainer className='mt-2'>
+            <div className='flex justify-between px-6 py-8'>
+              <div className='flex flex-col'>
+                <span className='text-[24px] font-semibold'>0</span>
+                <span>RFT to Harvest</span>
+              </div>
+              <div className='flex flex-col'>
+                <span className='text-[24px] font-semibold'>0</span>
+                <span>RFT Total</span>
+              </div>
+            </div>
+          </BorderContainer>
+        </div>
+      </div>
+      <div className='max-w-screen-2xl grid lg:grid-cols-3 grid-cols-2 gap-2 lg:gap-10 mx-auto px-8 sm:px-10 mb-12'>
+        <FarmingCard min={50} max={100} arp={100.01} />
+        <FarmingCard min={1000} max={5000} arp={108} />
+        <FarmingCard min={5000} max={10000} arp={120.01} />
+        <FarmingCard min={10000} max={25000} arp={132} />
+        <FarmingCard min={25000} max={50000} arp={144} />
+        <FarmingCard min={50000} max={100000} arp={156} />
+      </div>
     </div>
   );
 };
