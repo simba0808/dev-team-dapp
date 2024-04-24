@@ -22,14 +22,16 @@ type Props = {
   provider: Pick<ClientSafeProvider, 'id' | 'name'>;
   size?: 'small' | 'medium' | 'large';
   className?: string;
+  onHeader?: boolean;
   onSignIn?: () => void;
 };
 
-const ProviderButton: FC<Props> = ({provider, size='medium', className, onSignIn}) => {
+const ProviderButton: FC<Props> = ({provider, size='medium', className, onSignIn, onHeader}) => {
   const searchParams = useSearchParams();
   const {session, disconnect} = useAuthSession(provider.id as Provider);
 
   const onClick = useCallback(() => {
+    alert(onHeader);
     if (session) {
       disconnect();
       return;
@@ -56,7 +58,7 @@ const ProviderButton: FC<Props> = ({provider, size='medium', className, onSignIn
       onClick={onClick}
       className={twMerge('box-shadow', className)}
     >
-      {session ? 'Disconnect' : verb} {name}
+      {session ? 'Disconnect' : verb} {onHeader===true?'Wallet':name}
     </Button>
   );
 };

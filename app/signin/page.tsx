@@ -1,5 +1,5 @@
 'use client';
-import {Suspense, useCallback, useMemo, useState} from 'react';
+import {Suspense, useCallback, useState} from 'react';
 import {useRouter} from 'next/navigation';
 
 import useAuthSession from '@/lib/auth/hooks/useAuthSession';
@@ -9,7 +9,6 @@ import Header from '@/lib/components/layout/Header';
 import Footer from '@/lib/components/layout/Footer';
 import Background from '@/app/Background';
 import MaskMaker from '@/lib/components/MaskMaker';
-import Button from '@/lib/components/button/Button';
 
 import ProviderButton from './ProviderButton';
 import ConnectWeb3Wallet from './ConnectWeb3Wallet';
@@ -32,15 +31,9 @@ const SigninPage: FC<{searchParams: Record<string, string | undefined>}> = ({sea
     router.push('/signin');
   }, []);
 
-  const headerTrailing = useMemo(() => (
-    <Button variant='transparent' size='medium' onClick={onConnect}>
-      Connect Wallet
-    </Button>
-  ), []);
-
   return (
     <div className='relative min-h-[100vh]'>
-      <Header trailing={headerTrailing} />
+      <Header />
       <Background />
       <div className='min-h-[90vh] pt-32 pb-10 flex justify-center px-4'>
         <div className='z-10 flex flex-col bg-black/20 px-10 py-10 text-white rounded-xl'>

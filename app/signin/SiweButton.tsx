@@ -20,9 +20,10 @@ const SIWE_PROVIDER = {
 
 type Props = {
   className?: string;
+  onHeader?: boolean;
 };
 
-const SiweButton: FC<Props> = ({className}) => {
+const SiweButton: FC<Props> = ({className, onHeader}) => {
   const {address} = useAccount();
   const {chain} = useNetwork();
   const  {signMessageAsync} = useSignMessage();
@@ -90,6 +91,7 @@ const SiweButton: FC<Props> = ({className}) => {
         provider={SIWE_PROVIDER}
         onSignIn={onSignIn}
         size={className ? 'small':'medium'}
+        onHeader={onHeader}
         className={className}
       />
     </div>

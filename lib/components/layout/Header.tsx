@@ -20,6 +20,7 @@ export const Header: FC<Props> = ({
   trailing
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     router.prefetch('/signin');
@@ -64,13 +65,18 @@ export const Header: FC<Props> = ({
     <div className={`z-20 fixed top-0 w-[100%] flex items-center py-4 bg-black/80 backdrop-blur-sm ${toggle?'rounded-b-xl':'rounded-b-none'}`}>
       <div className='max-w-screen-2xl w-full flex flex-wrap justify-between items-center mx-auto px-4 sm:px-10'>
         { logoElement }
-        <div className='flex gap-4 lg:order-2'>
+        <div className='flex gap-2 lg:gap-4 lg:order-2'>
           {
             trailing
           }
-          <button className='lg:hidden mr-2' onClick={() => setToggle(!toggle)}>
-            <ToggleMenu />
-          </button>
+          {
+            pathname !== '/' && (
+              <button className='lg:hidden' onClick={() => setToggle(!toggle)}>
+                <ToggleMenu />
+              </button>
+            )
+          }
+          
         </div>
         <div className={`w-full lg:w-auto ${toggle?'flex':'hidden lg:flex'} items-center gap-10 lg:order-1`}>
           <ul className='w-full flex flex-col lg:flex-row lg:gap-8 mt-4 lg:mt-0 divide-y-[1px] divide-slate-700 lg:divide-y-0 text-white text-xl font-thin'>

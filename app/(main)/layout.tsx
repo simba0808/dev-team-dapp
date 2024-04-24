@@ -7,6 +7,7 @@ import {useWeb3Modal} from '@web3modal/react';
 import {WalletOutlined} from '@mui/icons-material';
 
 import {useAppSelector} from '@/lib/store/hooks';
+import useAuthSession from '@/lib/auth/hooks/useAuthSession';
 import useSocketDebug from '@/lib/net/ws/useSocketDebug';
 import useSocketGlobalMessages from '@/lib/net/ws/useSocketGlobalMessages';
 import Header from '@/lib/components/layout/Header';
@@ -32,6 +33,7 @@ const MainLayout: FC<Props> = ({children}) => {
 
   const auth = useAppSelector(state => state.auth);
   const user = useAppSelector(state => state.auth.user);
+  const {session} = useAuthSession('siwe');
   const {address, isConnected} = useAccount();
   const {status} = useSession();
 
@@ -57,14 +59,17 @@ const MainLayout: FC<Props> = ({children}) => {
   }, [address]);
 
   const headerTrailing = useMemo(() => (
-    <div className='flex gap-2'>
+    <div className='flex items-center gap-1'>
       {
         user ?
           <>
             {
               !auth.sessions.siwe ? 
                 <>
-                  <SiweButton className='flex flex-col align-middle items-center mt-[0.1rem]' />
+                  <SiweButton 
+                    className='flex flex-col align-middle items-center text-[10px]' 
+                    onHeader={true}
+                  />
                   <Profile />
                 </>
                 : isConnected ? (
@@ -89,11 +94,11 @@ const MainLayout: FC<Props> = ({children}) => {
           </>
           :
           <Button variant='transparent' size='small' onClick={() => router.push('/signin')}>
-            Log in
+            Sign in
           </Button>
       }
     </div>
-  ), [status, user, isConnected]);
+  ), [status, user, session, isConnected]);
 
   return (
     <>
