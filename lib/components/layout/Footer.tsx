@@ -51,7 +51,7 @@ const Footer: FC = () => {
   };
 
   return (
-    <div className='hidden lg:block z-20 absolute bottom-0 w-full py-8 text-white bg-black/80'>
+    <div className='hidden lg:block z-20 absolute bottom-0 w-full py-4 text-white bg-black/80'>
       <div className='max-w-screen-2xl w-full h-full flex flex-col justify-between gap-4 mx-auto px-4 sm:px-10'>
         <div className='flex flex-col justify-center space-y-4 lg:flex-row lg:justify-between items-center'>
           { logoElement }
