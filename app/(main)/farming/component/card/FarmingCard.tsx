@@ -1,13 +1,23 @@
-import BorderContainer from '@/lib/components/BorderContainer';
-import Button from '@/lib/components/button/Button';
+'use client';
+import {useState} from 'react';
 
+import BorderContainer from '@/lib/components/BorderContainer';
+
+import ButtonModal from '../button/ButtonModal';
+
+import DelegateCard from './DelegateCard';
+import HarvestCard from './HarvestCard';
 import CardHeader from './CardHeader';
 
-const FarmingCard = ({min, max, arp}) => {
+
+const FarmingCard = ({id, min, max, arp, period}) => {
+  const [visible, setVisible] = useState(false);
+  const [harvestVisible, setHarvestVisible] = useState(false);
+
   return (
     <BorderContainer>
       <div className='px-2 sm:px-4 lg:px-8 py-3 lg:py-6 bg-gradient-to-b from-green-400/30 to-transparent rounded-2xl text-[6px] lg:text-[14px] text-[#00FFEB]'>
-        <CardHeader min={min} max={max} />
+        <CardHeader id={id} min={min} max={max} />
         <div className='py-2 lg:py-4'>
           <div className='flex justify-between'>
             <div className=''>
@@ -15,7 +25,13 @@ const FarmingCard = ({min, max, arp}) => {
               <p className='text-[8px] lg:text-[24px] font-semibold'>RFT 0</p>
             </div>
             <div className='flex items-center'>
-              <Button className='box-shadow px-2 py-1 lg:py-3 lg:px-6 text-[6px] lg:text-[14px] !rounded-full' variant='transparent' size='small'>DELEGATE</Button>
+              <ButtonModal
+                buttonText='DELEGATE'
+                visible={visible}
+                setVisible={setVisible}
+              >
+                <DelegateCard id={id} min={min} max={max} arp={arp} period={period}/>
+              </ButtonModal>
             </div>
           </div>
           <div className='flex justify-end my-1 lg:my-2 gap-x-2'>
@@ -28,7 +44,14 @@ const FarmingCard = ({min, max, arp}) => {
               <p className='text-[8px] lg:text-[24px] text-[#00FF47] font-semibold'>RFT 0</p>
             </div>
             <div className='flex items-center'>
-              <Button className='box-shadow px-2 py-1 lg:py-3 lg:px-6 text-[6px] lg:text-[14px] text-[#585252] bg-[#00FF47] box-green-shadow !rounded-full' variant='transparent' size='small'>HARVEST</Button>
+              <ButtonModal
+                buttonText='HARVEST'
+                buttonClass='text-[#585252] bg-[#00FF47] box-green-shadow '
+                visible={harvestVisible}
+                setVisible={setHarvestVisible}
+              >
+                <HarvestCard id={id} min={min} max={max} />
+              </ButtonModal>
             </div>
           </div>
         </div>
