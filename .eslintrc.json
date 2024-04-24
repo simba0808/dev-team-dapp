@@ -21,7 +21,7 @@
     "react/jsx-uses-react": "off",
 
     "@typescript-eslint/member-delimiter-style": "error",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "off",
     // eslint
     "no-unused-vars": "off", // to avoid a conflict with @typescript-eslint
     "no-irregular-whitespace": "off",

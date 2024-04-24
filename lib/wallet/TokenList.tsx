@@ -22,7 +22,7 @@ const tokenList: TokenField[] = [
   {
     id: 1,
     tokenURI: '/img/coin/icon-usdt.svg',
-    tokenAddress: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
+    tokenAddress: '0x55d398326f99059ff775485246999027b3197955',
     tokenName: 'Tether USDt',
     tokenSymbol: 'USDT',
     decimals: 6,

@@ -3,13 +3,13 @@ import React, {useEffect} from 'react';
 import {EthereumClient, w3mConnectors, w3mProvider} from '@web3modal/ethereum';
 import {Web3Modal} from '@web3modal/react';
 import {WagmiConfig, configureChains, createConfig, useAccount, useQueryClient} from 'wagmi';
-import {polygon} from '@wagmi/chains';
+import {bsc} from '@wagmi/chains';
 
 import queryClient from '@/lib/net/react-query/queryClient';
 
 import type {ConnectorData} from 'wagmi';
 
-const chains = [polygon];
+const chains = [bsc];
 const projectId = process.env.NEXT_PUBLIC_INFURA_KEY!;
 
 const {publicClient} = configureChains(chains, [w3mProvider({projectId})]);
