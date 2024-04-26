@@ -1,5 +1,7 @@
+'use client';
 import USDTTransferWidget from '@/app/(main)/swap/UsdtTransfer';
 import SwapWidget from '@/app/(main)/swap/SwapWidget';
+import ChartWidget from '@/app/(main)/sale/components/ChartWidget';
 import BalanceCard from '@/lib/components/cards/BalanceCard';
 import Button from '@/lib/components/button/Button';
 import BorderContainer from '@/lib/components/BorderContainer';
@@ -47,6 +49,10 @@ const Sale = () => {
         </div>
         <div className='mt-16'>
           <SwapWidget />
+        </div>
+
+        <div className='mt-16'>
+          <ChartWidget />
         </div>
       </div>
 

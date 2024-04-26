@@ -31,7 +31,6 @@ const ProviderButton: FC<Props> = ({provider, size='medium', className, onSignIn
   const {session, disconnect} = useAuthSession(provider.id as Provider);
 
   const onClick = useCallback(() => {
-    alert(onHeader);
     if (session) {
       disconnect();
       return;

@@ -251,15 +251,33 @@ h3 {
   }
 
   .text-landing-title {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
   }
 
+  .text-landing-title span {
+    font-size: 32px;
+  }
+
   .text-landing-content {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 400;
     text-transform: uppercase;
+  }
+
+  .text-landing-content span {
+    font-size: 24px;
+  }
+
+  .text-normal-content {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .text-normal-content span {
+    font-size: 20px;
   }
 
   .heading-h2 {
@@ -268,14 +286,13 @@ h3 {
     text-transform: uppercase;
   }
 
-  .text-normal-content {
-    font-size: 20px;
-    font-weight: 300;
-  }
-
   @media (max-width: 1024px) {
     .text-landing-title {
-      font-size: 20px;
+      font-size: 18px;
+    }
+
+    .text-landing-title span {
+      font-size: 20px
     }
 
     .text-landing-content {
@@ -284,15 +301,19 @@ h3 {
   }
 
   @media (max-width: 640px) {
-    .text-landing-title {
-      font-size: 24px;
+    .text-landing-content {
+      font-size: 10px;
     }
 
-    .text-landing-content {
+    .text-landing-content span {
       font-size: 12px;
     }
 
     .text-normal-content {
+      font-size: 10px;
+    }
+
+    .text-normal-content span {
       font-size: 12px;
     }
 
@@ -307,5 +328,15 @@ h3 {
 }
 
 @layer utilities {
-  
+  .place-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .common-border {
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 1.5rem;
+  }
 }
