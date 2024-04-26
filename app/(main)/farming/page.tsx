@@ -1,3 +1,4 @@
+'use client';
 import BorderContainer from '@/lib/components/BorderContainer';
 
 import FarmingCard from './component/card/FarmingCard';
